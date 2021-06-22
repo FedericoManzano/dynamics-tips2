@@ -35,7 +35,7 @@ Podemos incorporar la librería a través de su CDN.
 
     <!--  ACA VA EL CÖDIGO DE LA PÁGINA -->
 
-    <h1 class="tips-ele" 
+    <h1 class="tips-ele" style="width:20%"
         data-position="bottom"
         data-info="Este es un tips de <strong>dynamics-tips2.0.0</strong>" >
      Hola Mundo

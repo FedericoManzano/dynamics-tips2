@@ -201,17 +201,19 @@
 
 .tips {
   max-width: fit-content;
-  padding: 5px;
+  padding: 7px;
   font-size: 1em;
   color: white !important;
   background-color: #000000bb !important;
   position: absolute;
   display: none;
+  border-radius: 3px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   z-index: 10000;
+  transition: left 0.3s ease;
 }
 
 .comment {
@@ -224,6 +226,7 @@
   z-index: 10000;
   position: absolute;
   display: none;
+  transition: left 0.3s ease;
 }
 
 /*# sourceMappingURL=dynamics.css.map */
