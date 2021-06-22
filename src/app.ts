@@ -1,6 +1,8 @@
 
 import Dropdown from "../build/moduls/Dropdown"
 import Tips from "../build/moduls/Tips"
+import Comment from "../build/moduls/Comment"
+
 
 class App {
 
@@ -17,6 +19,10 @@ class App {
 
     static tips () : any {
         Tips.init()
+    }
+
+    static comment (): any {
+        Comment.init()
     }
 }
 

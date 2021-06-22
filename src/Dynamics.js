@@ -7,6 +7,7 @@ import App from "../build/app"
         init: () => {
             App.drop()
             App.tips()
+            App.comment()
         }
     }
 

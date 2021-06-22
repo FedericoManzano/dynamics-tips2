@@ -86,12 +86,18 @@ class Position {
     }
     static positionLeft(origen, ele) {
         $(ele).css("left", $(origen).offset().left - $(ele).width() - 25);
-        $(ele).css("top", Position.alignVertical(origen, ele) + Position.limitTop(origen));
+        $(ele).css("top", Position.alignVertical(origen, ele));
+        var da = Position.limitTop(ele);
+        if (da !== 0)
+            $(ele).css("top", Position.alignVertical(origen, ele) + da);
         $(ele).css({ transform: 'translateX(-10px)' });
     }
     static positionRight(origen, ele) {
         $(ele).css("left", $(origen).offset().left + $(origen).outerWidth() + 6);
-        $(ele).css("top", Position.alignVertical(origen, ele) + Position.limitTop(origen));
+        $(ele).css("top", Position.alignVertical(origen, ele));
+        var da = Position.limitTop(ele);
+        if (da !== 0)
+            $(ele).css("top", Position.alignVertical(origen, ele) + da);
         $(ele).css({ transform: 'translateX(10px)' });
     }
 }
