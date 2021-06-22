@@ -5,10 +5,23 @@ const Direction_1 = require("./position/Direction");
 class Tips {
     static init() {
         $(".tips-ele").on("mouseenter", (e) => {
-            Tips.evt(e.target);
+            Tips.origen = e.target;
+            Tips.evt(Tips.origen);
+            Tips.visible = true;
         });
         $(".tips-ele").on("mouseleave", () => {
             $(".tips").remove();
+            Tips.visible = false;
+        });
+        $(window).on("scroll", (e) => {
+            if (Tips.visible && Tips.origen !== null) {
+                Tips.evt(Tips.origen);
+            }
+        });
+        $(window).on("resize", (e) => {
+            if (Tips.visible && Tips.origen !== null) {
+                Tips.evt(Tips.origen);
+            }
         });
     }
     static evt(origen) {
@@ -20,4 +33,6 @@ class Tips {
         $(tips).show();
     }
 }
+Tips.visible = false;
+Tips.origen = null;
 exports.default = Tips;
