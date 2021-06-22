@@ -1,6 +1,6 @@
 
 import Dropdown from "../build/moduls/Dropdown"
-
+import Tips from "../build/moduls/Tips"
 
 class App {
 
@@ -14,9 +14,15 @@ class App {
     static drop () : any {
         Dropdown.init()
     }
+
+    static tips () : any {
+        Tips.init()
+    }
 }
 
 
 App.drop()
+App.tips()
+
 
 export default App

@@ -1,4 +1,4 @@
-# Dinamics Tips 2.0.0
+# Dynamics Tips 2.0.0
 
 Elementos dinámicos para páginas web incluye Dropdown, comentarios dinámicos, tooltips y personalizados
 
