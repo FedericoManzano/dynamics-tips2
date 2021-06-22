@@ -1,0 +1,166 @@
+/***********************************************************
+    DROPDOWN ***********************************************
+************************************************************/
+
+.dropdown-trigger {
+    padding-right:  $padding-right  !important;
+    position:       relative        !important;
+}
+
+
+.dropdown-list-force,
+.dropdown-list-pasture,
+.dropdown-list-dark,
+.dropdown-list-cure,
+.dropdown-list-fish,
+.dropdown-list-death,
+.dropdown-list-gentle,
+.dropdown-list-toxic,
+.dropdown-list-grey,
+.dropdown-list-haven {
+
+    white-space: nowrap;
+    position:    absolute;
+
+    padding:    $padding;
+    border:     $border;
+    min-width:  $min-width;
+    max-width:  fit-content;
+
+    z-index:    100000;
+
+    display:    none;
+
+    .list {
+
+
+        list-style: none;
+        li a {
+            text-decoration: none;
+            font-size:  $font-size;
+            padding:    $padding-a;
+            display:    block;
+        }
+    }
+}
+
+
+.dropdown-list-force {
+    background-color: var(--force) !important;
+    .list {
+        li a {
+            color: var(--cure) !important;
+
+            &:hover {
+                color: var(--grey) !important;
+            }
+        }
+    }
+}
+
+
+.dropdown-list-cure {
+    background-color: var(--cure) !important;
+    .list {
+        li a {
+            color: var(--death) !important;
+
+            &:hover {
+                color: var(--dark) !important;
+            }
+        }
+    }
+}
+
+
+.dropdown-list-dark {
+    background-color: var(--dark) !important;
+    .list {
+        li a {
+            color: var(--cure) !important;
+
+            &:hover {
+                color: var(--grey) !important;
+            }
+        }
+    }
+}
+
+.dropdown-list-death {
+    background-color: var(--death) !important;
+    .list {
+        li a {
+            color: var(--cure) !important;
+
+            &:hover {
+                color: var(--grey) !important;
+            }
+        }
+    }
+}
+
+
+.dropdown-list-gentle {
+    background-color: var(--gentle) !important;
+    .list {
+        li a {
+            color: var(--death) !important;
+
+            &:hover {
+                color: var(--dark) !important;
+            }
+        }
+    }
+}
+
+
+.dropdown-list-toxic {
+    background-color: var(--toxic) !important;
+    .list {
+        li a {
+            color: var(--death) !important;
+
+            &:hover {
+                color: var(--dark) !important;
+            }
+        }
+    }
+}
+
+.dropdown-list-haven {
+    background-color: var(--haven) !important;
+    .list {
+        li a {
+            color: var(--death) !important;
+
+            &:hover {
+                color: var(--dark) !important;
+            }
+        }
+    }
+}
+
+
+.dropdown-list-grey {
+    background-color: var(--grey) !important;
+    .list {
+        li a {
+            color: var(--death) !important;
+
+            &:hover {
+                color: var(--dark) !important;
+            }
+        }
+    }
+}
+
+
+.cover-drop {
+    z-index:    90000;
+    position:   fixed;
+    left:       0;
+    top:        0;
+    right:      0;
+    bottom:     0;
+    height:     100%;
+}

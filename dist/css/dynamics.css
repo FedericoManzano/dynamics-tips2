@@ -1,0 +1,201 @@
+@charset "UTF-8";
+:root {
+  --force: #D11E1E;
+  --fish: #2254CE;
+  --toxic: #ffc802;
+  --death: #000000;
+  --dark: #292a30;
+  --grey: #c4c4c4;
+  --gentle: #eeeeee;
+  --cure: #FFFFFF;
+  --pasture: #098d5a;
+  --haven: #00cafd;
+}
+
+/****************************************************************
+  ICONS *********************************************************
+*****************************************************************/
+@font-face {
+  font-family: "icomoon";
+  src: url("fonts/icomoon.eot?9ixpny");
+  src: url("fonts/icomoon.eot?9ixpny#iefix") format("embedded-opentype"), url("fonts/icomoon.ttf?9ixpny") format("truetype"), url("fonts/icomoon.woff?9ixpny") format("woff"), url("fonts/icomoon.svg?9ixpny#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+[class^=dy-], [class*=" dy-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dy-right:before {
+  content: "";
+}
+
+.dy-down:before {
+  content: "";
+}
+
+.dy-right:before,
+.dy-down:before {
+  font-size: 20px !important;
+  right: 10px;
+  font-weight: 600;
+  position: absolute;
+  top: calc(50% - 8px);
+}
+
+/***********************************************************
+    DROPDOWN ***********************************************
+************************************************************/
+.dropdown-trigger {
+  padding-right: 30px !important;
+  position: relative !important;
+}
+
+.dropdown-list-force,
+.dropdown-list-pasture,
+.dropdown-list-dark,
+.dropdown-list-cure,
+.dropdown-list-fish,
+.dropdown-list-death,
+.dropdown-list-gentle,
+.dropdown-list-toxic,
+.dropdown-list-grey,
+.dropdown-list-haven {
+  white-space: nowrap;
+  position: absolute;
+  padding: 15px;
+  border: 1px solid #00000046;
+  min-width: 150px;
+  max-width: fit-content;
+  z-index: 100000;
+  display: none;
+}
+.dropdown-list-force .list,
+.dropdown-list-pasture .list,
+.dropdown-list-dark .list,
+.dropdown-list-cure .list,
+.dropdown-list-fish .list,
+.dropdown-list-death .list,
+.dropdown-list-gentle .list,
+.dropdown-list-toxic .list,
+.dropdown-list-grey .list,
+.dropdown-list-haven .list {
+  list-style: none;
+}
+.dropdown-list-force .list li a,
+.dropdown-list-pasture .list li a,
+.dropdown-list-dark .list li a,
+.dropdown-list-cure .list li a,
+.dropdown-list-fish .list li a,
+.dropdown-list-death .list li a,
+.dropdown-list-gentle .list li a,
+.dropdown-list-toxic .list li a,
+.dropdown-list-grey .list li a,
+.dropdown-list-haven .list li a {
+  text-decoration: none;
+  font-size: 14px;
+  padding: 3px 0px;
+  display: block;
+}
+
+.dropdown-list-force {
+  background-color: var(--force) !important;
+}
+.dropdown-list-force .list li a {
+  color: var(--cure) !important;
+}
+.dropdown-list-force .list li a:hover {
+  color: var(--grey) !important;
+}
+
+.dropdown-list-cure {
+  background-color: var(--cure) !important;
+}
+.dropdown-list-cure .list li a {
+  color: var(--death) !important;
+}
+.dropdown-list-cure .list li a:hover {
+  color: var(--dark) !important;
+}
+
+.dropdown-list-dark {
+  background-color: var(--dark) !important;
+}
+.dropdown-list-dark .list li a {
+  color: var(--cure) !important;
+}
+.dropdown-list-dark .list li a:hover {
+  color: var(--grey) !important;
+}
+
+.dropdown-list-death {
+  background-color: var(--death) !important;
+}
+.dropdown-list-death .list li a {
+  color: var(--cure) !important;
+}
+.dropdown-list-death .list li a:hover {
+  color: var(--grey) !important;
+}
+
+.dropdown-list-gentle {
+  background-color: var(--gentle) !important;
+}
+.dropdown-list-gentle .list li a {
+  color: var(--death) !important;
+}
+.dropdown-list-gentle .list li a:hover {
+  color: var(--dark) !important;
+}
+
+.dropdown-list-toxic {
+  background-color: var(--toxic) !important;
+}
+.dropdown-list-toxic .list li a {
+  color: var(--death) !important;
+}
+.dropdown-list-toxic .list li a:hover {
+  color: var(--dark) !important;
+}
+
+.dropdown-list-haven {
+  background-color: var(--haven) !important;
+}
+.dropdown-list-haven .list li a {
+  color: var(--death) !important;
+}
+.dropdown-list-haven .list li a:hover {
+  color: var(--dark) !important;
+}
+
+.dropdown-list-grey {
+  background-color: var(--grey) !important;
+}
+.dropdown-list-grey .list li a {
+  color: var(--death) !important;
+}
+.dropdown-list-grey .list li a:hover {
+  color: var(--dark) !important;
+}
+
+.cover-drop {
+  z-index: 90000;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+}
+
+/*# sourceMappingURL=dynamics.css.map */
