@@ -33,17 +33,17 @@ class Position {
         const origenOffsetLeft = $(origin).offset().left;
         const origenWidth = $(origin).width();
         const tipsWidth = $(element).width();
-        return windowWidth - origenOffsetLeft - origenWidth - 80 > tipsWidth + 5;
+        return windowWidth - origenOffsetLeft - origenWidth - 80 > tipsWidth + 20;
     }
     static canLeft(origin, element) {
-        return $(origin).offset().left > $(element).width() + 5;
+        return $(origin).offset().left > $(element).width() + 20;
     }
     static alignHorizontal(origin, element) {
         var corr = ($(origin).outerWidth()) - $(element).outerWidth();
         return Position.positionX(origin, element) + Math.round(corr / 2);
     }
     static alignVertical(origin, element) {
-        var corr = ($(origin).outerHeight()) - $(element).outerHeight();
+        var corr = $(origin).outerHeight() - $(element).outerHeight();
         return Position.positionY(origin, element) + Math.round(corr / 2);
     }
     static limitLeft(element) {
@@ -60,6 +60,7 @@ class Position {
     }
     static positionTop(origin, ele) {
         $(ele).css("top", $(origin).offset().top - $(ele).outerHeight() - 5);
+        $(ele).css("left", Position.alignHorizontal(origin, ele));
         var di = Position.limitLeft(ele);
         var td = Position.limitRight(ele);
         if (di !== 0) {
@@ -72,6 +73,7 @@ class Position {
     }
     static positionBottom(origen, ele) {
         $(ele).css("top", $(origen).offset().top + $(origen).outerHeight() + 5);
+        $(ele).css("left", Position.alignHorizontal(origen, ele));
         var di = Position.limitLeft(ele);
         var td = Position.limitRight(ele);
         if (di !== 0) {
@@ -84,16 +86,12 @@ class Position {
     }
     static positionLeft(origen, ele) {
         $(ele).css("left", $(origen).offset().left - $(ele).width() - 25);
-        var da = Position.limitTop(ele);
-        if (da !== 0)
-            $(ele).css("top", Position.alignVertical(origen, ele) + da);
+        $(ele).css("top", Position.alignVertical(origen, ele) + Position.limitTop(origen));
         $(ele).css({ transform: 'translateX(-10px)' });
     }
     static positionRight(origen, ele) {
         $(ele).css("left", $(origen).offset().left + $(origen).outerWidth() + 6);
-        let da = Position.limitTop(ele);
-        if (da !== 0)
-            $(ele).css("top", Position.alignVertical(origen, ele) + da);
+        $(ele).css("top", Position.alignVertical(origen, ele) + Position.limitTop(origen));
         $(ele).css({ transform: 'translateX(10px)' });
     }
 }

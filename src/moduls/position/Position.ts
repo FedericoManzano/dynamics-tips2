@@ -16,7 +16,7 @@ class Position {
      * @param element Elemento dinamico
      * @returns Number posición X del elemento dinamico
      */
-    static positionX  (origin:any, element:any) {
+    static positionX  (origin, element) {
         var x = $(origin).offset().left
         $(element).css("left", x)
         return x
@@ -30,7 +30,7 @@ class Position {
      * @param element Elemento dinamico
      * @returns Number posición Y del elemento dinamico
      */
-    static positionY  (origin:any, element:any) {
+    static positionY  (origin, element) {
         var y = $(origin).offset().top
         $(element).css("top", y)
         return y
@@ -68,11 +68,11 @@ class Position {
         const origenOffsetLeft = $(origin).offset().left
         const origenWidth = $(origin).width()
         const tipsWidth = $(element).width()
-        return windowWidth - origenOffsetLeft - origenWidth - 80 > tipsWidth + 5
+        return windowWidth - origenOffsetLeft - origenWidth - 80 > tipsWidth + 20
     }
 
     static canLeft  (origin, element) {
-        return $(origin).offset().left > $(element).width() + 5
+        return $(origin).offset().left > $(element).width() + 20
     }
 
 
@@ -81,8 +81,8 @@ class Position {
         return Position.positionX(origin,element) +  Math.round(corr / 2)
     }
 
-    static alignVertical (origin, element) {
-        var corr = ($(origin).outerHeight() ) - $(element).outerHeight()
+    static alignVertical (origin, element){
+        var corr = $(origin).outerHeight()  - $(element).outerHeight()
         return Position.positionY(origin,element) + Math.round(corr / 2)
     }
 
@@ -105,14 +105,18 @@ class Position {
 
     static positionTop (origin, ele) {
         $(ele).css("top", $(origin).offset().top - $(ele).outerHeight() - 5)
-
+        $(ele).css("left",  Position.alignHorizontal(origin,ele))
+        
         var di = Position.limitLeft(ele)
         var td = Position.limitRight(ele) 
 
-        if(di !== 0){
+      
+        if(di !== 0) {
             $(ele).css("left",  Position.alignHorizontal(origin,ele) + di)
-            td=0
+            td = 0
         }
+         
+        
         if(td !== 0)
             $(ele).css("left",  Position.alignHorizontal(origin,ele) + td )
         $(ele).css({transform: 'translateY(-10px)'})
@@ -121,11 +125,16 @@ class Position {
 
     static positionBottom (origen, ele)  {
         $(ele).css("top", $(origen).offset().top +$(origen).outerHeight() + 5)
+        
+        $(ele).css("left",  Position.alignHorizontal(origen,ele))
+
         var di = Position.limitLeft(ele)
         var td = Position.limitRight(ele) 
-        if(di !== 0){
+
+
+        if(di !== 0) {
             $(ele).css("left",  Position.alignHorizontal(origen,ele) + di)
-            td=0
+            td = 0
         }
         if(td !== 0)
             $(ele).css("left",  Position.alignHorizontal(origen,ele) + td )
@@ -134,17 +143,13 @@ class Position {
 
     static positionLeft (origen, ele) {
         $(ele).css("left", $(origen).offset().left - $(ele).width() - 25)
-        var da = Position.limitTop(ele)
-        if(da !== 0)
-            $(ele).css("top", Position.alignVertical(origen,ele) + da)
+        $(ele).css("top", Position.alignVertical(origen, ele) + Position.limitTop(origen))
         $(ele).css({transform: 'translateX(-10px)'})
     }
 
     static positionRight (origen, ele) {
         $(ele).css("left", $(origen).offset().left + $(origen).outerWidth() + 6)
-        let da = Position.limitTop(ele)
-        if(da !== 0)
-           $(ele).css("top", Position.alignVertical(origen, ele) + da)
+        $(ele).css("top", Position.alignVertical(origen, ele) + Position.limitTop(origen))
         $(ele).css({transform: 'translateX(10px)'})
     }
 }
