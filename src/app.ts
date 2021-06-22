@@ -20,9 +20,4 @@ class App {
     }
 }
 
-
-App.drop()
-App.tips()
-
-
 export default App

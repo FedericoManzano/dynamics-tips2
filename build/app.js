@@ -15,6 +15,4 @@ class App {
         Tips_1.default.init();
     }
 }
-App.drop();
-App.tips();
 exports.default = App;
