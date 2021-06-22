@@ -12,6 +12,16 @@
     "Comments",
     "Drop"
   ],
+  "files": [
+    "dist/{css,js}/*.{css,js,map}",
+    "build/{moduls}/.{js}",
+    "build/.{js}",
+    "src/{moduls}/**/*.{ts,js}",
+    "src/**/*.js",
+    "src/**/*.ts",
+    "sass/**/*.scss",
+    "sass/{var}/*.scss"
+  ],
   "author": "Federico Manzano",
   "license": "MIT",
   "devDependencies": {

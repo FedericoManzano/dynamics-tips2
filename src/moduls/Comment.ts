@@ -36,7 +36,7 @@ class Comment {
 
     static valParam (info:string, pos:string):boolean {
         return (info !== undefined && info !== null) && 
-                (pos !== undefined && pos !== null)
+                (pos !== undefined && pos  !== null)
     }
 
     
