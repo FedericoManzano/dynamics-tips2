@@ -6,15 +6,9 @@ class Comment {
     static init() {
         $(".com").each((index, ele) => {
             let evento = $(ele).data("evt");
-            if (evento === undefined && evento === null)
-                evento = "hover";
-            if (evento === "hover") {
-                $(".com").on("mouseenter", (e) => {
-                    Comment.event(e.target);
-                });
-                $(".com").on("mouseleave", (e) => {
-                    $(".comment").remove();
-                });
+            if (Comment.valEvent(evento)) {
+                $(".com").on("mouseenter", (e) => Comment.event(e.target));
+                $(".com").on("mouseleave", () => $(".comment").remove());
             }
             else {
                 $(ele).on("click", (e) => {
@@ -43,9 +37,18 @@ class Comment {
         $(ele).show();
         Direction_1.default.posicionar(pos, Comment.origen, ele);
     }
+    static valEvent(evento) {
+        return evento === "hover" || evento === undefined || evento === null;
+    }
     static valParam(info, pos) {
         return (info !== undefined && info !== null) &&
             (pos !== undefined && pos !== null);
+    }
+    static destroy() {
+        $(".com").off("mouseenter");
+        $(".com").off("mouseleave");
+        $(".com").off("click");
+        $(".comment").remove();
     }
 }
 Comment.visible = false;
