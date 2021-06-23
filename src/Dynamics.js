@@ -8,6 +8,7 @@ import App from "../build/app"
             App.drop()
             App.tips()
             App.comment()
+            App.personal()
         }
     }
 

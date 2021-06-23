@@ -4,7 +4,7 @@ const $ = require("jquery");
 const Direction_1 = require("./position/Direction");
 class Personal {
     static init() {
-        $(".tips-ele").each((index, ele) => {
+        $(".personal").each((index, ele) => {
             let evento = $(ele).data("evt");
             if (Personal.valEvent(evento)) {
                 $(ele).on("mouseenter", (e) => {
@@ -13,7 +13,7 @@ class Personal {
                         Personal.visible = true;
                 });
                 $(ele).on("mouseleave", () => {
-                    $(".tips").remove();
+                    $("." + Personal.clase).remove();
                     Personal.visible = false;
                 });
             }
@@ -25,7 +25,7 @@ class Personal {
                             Personal.visible = true;
                     }
                     else {
-                        $(".tips").remove();
+                        $("." + Personal.clase).remove();
                         Personal.visible = false;
                     }
                 });
@@ -43,9 +43,12 @@ class Personal {
     static evt(origen) {
         let pos = $(origen).data("position");
         let info = $(origen).data("info");
-        let clase = $(origen).data("class");
-        let ele = $(`<div class="${clase}">${info}</div>`);
-        if (!Personal.valParam(info, pos, clase)) {
+        Personal.clase = $(origen).data("class");
+        let ele = $(`<div class="${Personal.clase}">${info}</div>`);
+        $(ele).css("position", "absolute");
+        $(ele).css("transform", "translate(0)");
+        $(ele).css("transition", "transform 0.3s ease");
+        if (!Personal.valParam(info, pos, Personal.clase)) {
             console.error("Error en los parámetros ingresados revise los attr data");
             return;
         }
@@ -56,4 +59,5 @@ class Personal {
 }
 Personal.visible = false;
 Personal.origen = null;
+Personal.clase = null;
 exports.default = Personal;
