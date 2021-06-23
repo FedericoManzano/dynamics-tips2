@@ -213,7 +213,8 @@
   align-items: center;
   text-align: center;
   z-index: 10000;
-  transition: left 0.3s ease;
+  transform: translate(0);
+  transition: transform 0.3s ease;
 }
 
 .comment {
@@ -226,7 +227,8 @@
   z-index: 10000;
   position: absolute;
   display: none;
-  transition: left 0.3s ease;
+  transform: translate(0);
+  transition: transform 0.3s ease;
 }
 
 /*# sourceMappingURL=dynamics.css.map */

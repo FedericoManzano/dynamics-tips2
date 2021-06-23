@@ -9,28 +9,46 @@ class Comment {
 
     static init():void {
         
-        $(".com").on("mouseenter", (e) => {
-            Comment.origen = e.target
-            let info    = $(Comment.origen).data("info")
-            let pos     = $(Comment.origen).data("position")
-
-            if(!Comment.valParam(info, pos)) {
-                info = "Esto es un comentario"
-                pos = "bottom"
-            }
-
-            let elemento = $(`<div class="comment">${info}</div>`)
-            $("body").append(elemento)
-            $(elemento).show()
-
-            Direction.posicionar(pos, Comment.origen,elemento )
-        })  
-
-
-        $(".com").on("mouseleave", (e) => {
-            $(".comment").remove()
-        })
+        $(".com").each((index, ele) => {
+            let evento = $(ele).data("evt")
+            if(evento === undefined && evento === null)
+                evento = "hover"
+            if(evento === "hover") {
+                $(".com").on("mouseenter", (e) => {
+                    Comment.event(e.target)
+                })  
         
+        
+                $(".com").on("mouseleave", (e) => {
+                    $(".comment").remove()
+                })
+            }else {
+                $(ele).on("click", (e) => {
+                    if(!Comment.visible) {
+                        Comment.event(e.target)
+                        Comment.visible = true
+                    }else {
+                        $(".comment").remove()
+                        Comment.visible = false
+                    }
+                })
+            }
+        })
+
+    }
+
+    static event (origen:any):void {
+        Comment.origen = origen
+        let info    = $(Comment.origen).data("info")
+        let pos     = $(Comment.origen).data("position")
+        if(!Comment.valParam(info, pos)) {
+            info = "Esto es un comentario"
+            pos = "bottom"
+        }
+        let ele = $(`<div class="comment">${info}</div>`)
+        $("body").append(ele)
+        $(ele).show()
+        Direction.posicionar(pos, Comment.origen,ele )
     }
 
 

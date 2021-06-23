@@ -10,14 +10,33 @@ class Tips {
 
     static init():void {
         
-        $(".tips-ele").on("mouseenter", (e) => {
-            Tips.origen = e.target
-            Tips.evt(Tips.origen)
-            Tips.visible = true
-        })
-        $(".tips-ele").on("mouseleave", () => {
-            $(".tips").remove()
-            Tips.visible = false
+        $(".tips-ele").each((index:Number, ele:any) => {
+            let evento = $(ele).data("evt")
+            if(evento === undefined || evento === null) 
+                evento = "hover"
+            if(evento === "hover") {
+                
+                $(ele).on("mouseenter", (e) => {
+                    Tips.origen = e.target
+                    Tips.evt(Tips.origen)
+                    Tips.visible = true
+                })
+                $(ele).on("mouseleave", () => {
+                    $(".tips").remove()
+                    Tips.visible = false
+                })
+            } else {
+                $(ele).on("click", (e)  => {
+                    if(!Tips.visible) {
+                        Tips.origen = e.target
+                        Tips.evt(Tips.origen)
+                        Tips.visible = true
+                    }else {
+                        $(".tips").remove()
+                        Tips.visible = false
+                    }
+                })
+            }
         })
 
         $(window).on("scroll", (e) => {
@@ -34,9 +53,9 @@ class Tips {
     }
 
     static evt (origen):void {
-        let pos     =   $(origen).data("position")
-        let info    =   $(origen).data("info")
-        let tips    =   $(`<div class="tips">${info}</div>`)
+        let pos                 =   $(origen).data("position")
+        let info                =   $(origen).data("info")
+        let tips                =   $(`<div class="tips">${info}</div>`)
         $("body").append(tips)
         Direction.posicionar(pos, origen, tips, false)
         $(tips).show()
