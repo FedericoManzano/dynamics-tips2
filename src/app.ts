@@ -2,7 +2,7 @@
 import Dropdown from "../build/moduls/Dropdown"
 import Tips from "../build/moduls/Tips"
 import Comment from "../build/moduls/Comment"
-
+import Personal from "../build/moduls/Personal"
 
 class App {
 
@@ -23,6 +23,10 @@ class App {
 
     static comment (): any {
         Comment.init()
+    }
+
+    static personal (): any {
+        Personal.init()
     }
 }
 

@@ -22,6 +22,10 @@
     "sass/**/*.scss",
     "sass/{var}/*.scss"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FedericoManzano/dynamics-tips2"
+  },
   "author": "Federico Manzano",
   "license": "MIT",
   "devDependencies": {
