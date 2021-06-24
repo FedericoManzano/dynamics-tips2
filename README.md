@@ -2,6 +2,73 @@
 
 Elementos dinámicos para páginas web incluye Dropdown, comentarios dinámicos, tooltips y personalizados
 
+## Estructura
+
+```
+| > dynamics-tips
+    | build
+        | moduls
+            | position
+                * BottomDirection.js
+                * TopDirection.js
+                * LeftDirection.js
+                * RightDirection.js
+                * Direction.js
+                * Position.js
+                * Offset.js
+            * Comment.js
+            * Dropdown.js
+            * Personal.js
+            * Tips.js
+            | test
+                (Test Unitarios)
+        * app.js
+    | dist
+        | css
+            | fonts
+                * fuentes de los íconos
+            * dynamics.css
+            * dynamics.min.css
+            * dynamics.css.map
+        | js 
+            * dynamics.js
+            * dynamics.min.js
+    | node_modules `Dependencias instaladas`
+    | sass
+        | var
+            * _global.scss
+        * _comment.scss
+        * _dropdown.scss
+        * _icons.scss
+        * _tips.scss
+        * dynamics.scss
+    | src
+        | moduls
+            | position
+                * BottomDirection.ts
+                * TopDirection.ts
+                * LeftDirection.ts
+                * RightDirection.ts
+                * Direction.ts
+                * Position.ts
+                * Offset.ts
+            * Comment.js
+            * Dropdown.js
+            * Personal.js
+            * Tips.js
+            | test
+                (Test Unitarios)
+        * app.js
+        * dynamics.js (main de la lib)
+    * LICENSE
+    * package.look.json
+    * package.json
+    * REASME.md
+    * tsconfig.json
+    * webpack.config.js
+
+```
+
 ## CDN 
 
 Podemos incorporar la librería a través de su CDN.
