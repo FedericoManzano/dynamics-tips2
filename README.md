@@ -56,3 +56,32 @@ Podemos incorporar la librería a través de su CDN.
 </body>
 </html>
 ```
+## Instalación
+
+A través de los gestores de paquetes de NodeJs.
+
+```
+npm install dynamics-tips
+```
+```
+yarn add dynamics-tips 
+```
+
+### Agregar módulo el Angular
+
+```js
+import Dropdown from "src/moduls/Dropdown";
+import Comment from "src/moduls/Comment";
+import Tips from "src/moduls/Tips";
+import Personal from "src/moduls/Personal";
+
+// Codigo TS
+
+// Ciclo de vida del componente
+AfterViewInit ():void {
+    Dropdown.init()
+    Comment.init()
+    Tips.init()
+    Personal.init()
+}
+```
