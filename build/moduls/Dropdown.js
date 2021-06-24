@@ -9,15 +9,9 @@ class Dropdown {
         $(".cover-drop").on("click", (e) => {
             $(".dropdown-trigger").children("span").remove();
             $(".dropdown-trigger").append(`<span class="dy-right"><span>`);
-            $(".dropdown-list-gentle").hide(150);
-            $(".dropdown-list-dark").hide(150);
-            $(".dropdown-list-death").hide(150);
-            $(".dropdown-list-cure").hide(150);
-            $(".dropdown-list-toxic").hide(150);
-            $(".dropdown-list-haven").hide(150);
-            $(".dropdown-list-force").hide(150);
-            $(".dropdown-list-fish").hide(150);
-            $(".dropdown-list-grey").hide(150);
+            Dropdown.clases.forEach((ele) => {
+                $(".dropdown-list-" + ele).hide(Dropdown.TIME_EFECT);
+            });
             $(e.target).hide();
             Dropdown.visible = false;
         });
@@ -45,22 +39,25 @@ class Dropdown {
     }
     static handler(elemento) {
         if (!Dropdown.visible) {
-            $(elemento).children("span").remove();
-            $(elemento).append(`<span class="dy-down"><span>`);
-            Dropdown.visible = true;
-            let drop = $(elemento).data("target");
+            Dropdown.showDrop(elemento);
             Dropdown.position(elemento);
-            $(drop).show(150);
-            $(".cover-drop").show();
         }
-        else {
-            $(elemento).children("span").remove();
-            $(elemento).append(`<span class="dy-right"><span>`);
-            Dropdown.visible = false;
-            let drop = $(elemento).data("target");
-            $(drop).hide(150);
-            $(".cover-drop").hide();
-        }
+        else
+            Dropdown.hideDrop(elemento);
+    }
+    static hideDrop(ele) {
+        $(ele).children("span").remove();
+        $(ele).append(`<span class="dy-right"><span>`);
+        $($(ele).data("target")).hide(Dropdown.TIME_EFECT);
+        $(".cover-drop").hide();
+        Dropdown.visible = false;
+    }
+    static showDrop(ele) {
+        $(ele).children("span").remove();
+        $(ele).append(`<span class="dy-down"><span>`);
+        $($(ele).data("target")).show(Dropdown.TIME_EFECT);
+        $(".cover-drop").show();
+        Dropdown.visible = true;
     }
     static position(elemento) {
         let drop = $(elemento).data("target");
@@ -70,6 +67,26 @@ class Dropdown {
         else
             Direction_1.default.posicionar(pos, elemento, drop, false);
     }
+    static destroy() {
+        $(".cover-drop").off("click");
+        $(".cover-drop").remove();
+        $(".dropdown-trigger").off("click");
+        $(".dropdown-trigger").each((ele, index) => {
+            $($(ele).data("target")).remove();
+        });
+    }
 }
 Dropdown.visible = false;
+Dropdown.TIME_EFECT = 150;
+Dropdown.clases = [
+    "gentle",
+    "dark",
+    "death",
+    "cure",
+    "toxic",
+    "haven",
+    "force",
+    "fish",
+    "grey"
+];
 exports.default = Dropdown;

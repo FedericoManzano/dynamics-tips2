@@ -17,6 +17,10 @@ class App {
         Dropdown.init()
     }
 
+    static dropDestroy () : any {
+        Dropdown.destroy()
+    }
+
     static tips () : any {
         Tips.init()
     }

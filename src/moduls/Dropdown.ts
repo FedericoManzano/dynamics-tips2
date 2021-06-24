@@ -1,36 +1,76 @@
+// Importa JQUERY
 import * as $ from "jquery"
+
+/** @see src/moduls/Direction.ts */
 import Direction from "./position/Direction"
 
+
+/**
+ * Clase Drop para mostrar un listado dinamico 
+ * cerca de un objeto disparador.
+ */
 class Dropdown {
 
-    static visible:boolean = false
+    // Drop visible = true no visible = false
+    static visible : boolean = false
+
+    // Tiempo que tarda el efecto para mostrar el drop
+    static TIME_EFECT : Number = 150 
+    
+    // Listado de clases con 
+    // los diferentes colores de drop
+    static clases:string[] = [
+        "gentle",
+        "dark",
+        "death",
+        "cure",
+        "toxic",
+        "haven",
+        "force",
+        "fish",
+        "grey"
+    ];
+
 
     static init():void {
 
         
+        // Capa invisible que cubre todo el documento
+        // Cuando el drop está activo y esta capa es presionada 
+        // el drop desaparece
         $("body").append(`<div class="cover-drop"></div>`)
         $(".cover-drop").hide()
 
 
         $(".cover-drop").on("click", (e) => {
 
-
+            // Flecha por defecto
+            // cada disparador posee 2 estados de flechas
+            // segun el estado del drop
+            // por defecto es hacia la derecha
             $(".dropdown-trigger").children("span").remove()
             $(".dropdown-trigger").append(`<span class="dy-right"><span>`) 
-            
-            $(".dropdown-list-gentle").hide(150)
-            $(".dropdown-list-dark").hide(150)
-            $(".dropdown-list-death").hide(150)
-            $(".dropdown-list-cure").hide(150)
-            $(".dropdown-list-toxic").hide(150)
-            $(".dropdown-list-haven").hide(150)
-            $(".dropdown-list-force").hide(150)
-            $(".dropdown-list-fish").hide(150)
-            $(".dropdown-list-grey").hide(150)
+
+
+            // Desaparece todos los drop cualquiera sea la clase 
+            // que posean para definir el color del mismo
+            Dropdown.clases.forEach((ele:any) => {
+                $(".dropdown-list-"+ele).hide (Dropdown.TIME_EFECT)
+            })
+
+            // Desaparece la capa y el drop
             $(e.target).hide()
+
+            // Defino la bandera para saber si el drop 
+            // es visible o no 
+            // en este caso no.
             Dropdown.visible = false 
         })
 
+
+        /**
+         * Evento disparador 
+         */
         $(".dropdown-trigger").each( (index, ele) => {
             $(ele).append(`<span class="dy-right"><span>`)
             $(ele).on("click", (e) => {
@@ -58,22 +98,29 @@ class Dropdown {
 
     static handler(elemento:any): void {
         if(!Dropdown.visible) {
-            $(elemento).children("span").remove()
-            $(elemento).append(`<span class="dy-down"><span>`) 
-            Dropdown.visible = true 
-            let drop = $(elemento).data("target")
+            Dropdown.showDrop(elemento)
             Dropdown.position(elemento)
-            $(drop).show(150)
-            $(".cover-drop").show()
-        } else {
-            $(elemento).children("span").remove()
-            $(elemento).append(`<span class="dy-right"><span>`) 
-            Dropdown.visible = false 
-            let drop = $(elemento).data("target")
-            $(drop).hide(150)
-            $(".cover-drop").hide()
-        }
+        } else 
+            Dropdown.hideDrop(elemento)
+        
     }
+
+    static hideDrop (ele:any):void {
+        $(ele).children("span").remove()
+        $(ele).append(`<span class="dy-right"><span>`) 
+        $($(ele).data("target")).hide(Dropdown.TIME_EFECT)
+        $(".cover-drop").hide()
+        Dropdown.visible = false 
+    }
+
+    static showDrop (ele:any):void {
+        $(ele).children("span").remove()
+        $(ele).append(`<span class="dy-down"><span>`) 
+        $($(ele).data("target")).show(Dropdown.TIME_EFECT)
+        $(".cover-drop").show()
+        Dropdown.visible = true 
+    }
+
 
     static position (elemento:any): void  {
         let drop    = $(elemento).data("target")
@@ -82,6 +129,16 @@ class Dropdown {
             Direction.posicionar("bottom", elemento, drop, false)
         else 
             Direction.posicionar(pos, elemento, drop, false)
+    }
+
+
+    static destroy():void {
+        $(".cover-drop").off("click")
+        $(".cover-drop").remove()
+        $(".dropdown-trigger").off("click")
+        $(".dropdown-trigger").each( (ele:any, index) => {
+            $( $( ele ).data("target") ).remove()
+        })
     }
 }
 

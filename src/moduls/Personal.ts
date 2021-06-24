@@ -113,18 +113,18 @@ class Personal {
         let ele                  =   $(`<div class="${ Personal.clase }">${info}</div>`)
 
 
-        $( ele ).css("position", "absolute")
-        $( ele ).css("transform", "translate(0)")
-        $( ele ).css("transition", "transform 0.3s ease")
+        $( ele ).css("position",    "absolute")
+        $( ele ).css("transform",   "translate(0)")
+        $( ele ).css("transition",  "transform 0.3s ease")
 
-        if(!Personal.valParam(info, pos, Personal.clase )) {
+        if( !Personal.valParam(info, pos, Personal.clase )) {
             console.error("Error en los parámetros ingresados revise los attr data")
             return false
         }
 
-        $("body").append(ele)
-        Direction.posicionar(pos, origen, ele, false)
-        $(ele).show()
+        $( "body" ).append(ele)
+        Direction.posicionar( pos, origen, ele, false )
+        $( ele ).show()
         return true
     }
 }

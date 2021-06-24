@@ -13,6 +13,9 @@ class App {
     static drop() {
         Dropdown_1.default.init();
     }
+    static dropDestroy() {
+        Dropdown_1.default.destroy();
+    }
     static tips() {
         Tips_1.default.init();
     }
