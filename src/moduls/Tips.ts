@@ -1,9 +1,13 @@
 import * as $ from "jquery"
 import Direction from "./position/Direction"
 
-
+/**
+ * 
+ * 
+ */
 class Tips {
 
+    // 
     static visible:boolean = false
     static origen:any = null 
 
@@ -12,13 +16,12 @@ class Tips {
         
         $(".tips-ele").each((index:Number, ele:any) => {
             let evento = $(ele).data("evt")
-            if(evento === undefined || evento === null) 
-                evento = "hover"
-            if(evento === "hover") {
+            
+            if( Tips.valEvent(evento) ) {
                 
-                $(ele).on("mouseenter", (e) => {
+                $( ele ).on("mouseenter", ( e ) => {
                     Tips.origen = e.target
-                    Tips.evt(Tips.origen)
+                    Tips.evt( Tips.origen )
                     Tips.visible = true
                 })
                 $(ele).on("mouseleave", () => {
@@ -59,6 +62,10 @@ class Tips {
         $("body").append(tips)
         Direction.posicionar(pos, origen, tips, false)
         $(tips).show()
+    }
+
+    static valEvent (evento:string) : boolean {
+        return evento === "hover" || evento === undefined || evento === null
     }
 }
 

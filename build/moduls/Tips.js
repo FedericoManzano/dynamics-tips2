@@ -6,9 +6,7 @@ class Tips {
     static init() {
         $(".tips-ele").each((index, ele) => {
             let evento = $(ele).data("evt");
-            if (evento === undefined || evento === null)
-                evento = "hover";
-            if (evento === "hover") {
+            if (Tips.valEvent(evento)) {
                 $(ele).on("mouseenter", (e) => {
                     Tips.origen = e.target;
                     Tips.evt(Tips.origen);
@@ -51,6 +49,9 @@ class Tips {
         $("body").append(tips);
         Direction_1.default.posicionar(pos, origen, tips, false);
         $(tips).show();
+    }
+    static valEvent(evento) {
+        return evento === "hover" || evento === undefined || evento === null;
     }
 }
 Tips.visible = false;

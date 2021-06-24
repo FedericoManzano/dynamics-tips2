@@ -54,6 +54,18 @@ class Comment {
                     }
                 })
             }
+
+            $(window).on("scroll", () => {
+                $(".comment").remove()
+                if(Comment.visible) 
+                    Comment.event(ele)
+            })
+
+            $(window).on("resize", () => {
+                $(".comment").remove()
+                if(Comment.visible)  
+                    Comment.event(ele) 
+            })
         })
     }
 

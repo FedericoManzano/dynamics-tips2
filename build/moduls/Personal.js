@@ -20,6 +20,7 @@ class Personal {
             else {
                 $(ele).on("click", (e) => {
                     if (!Personal.visible) {
+                        $("." + Personal.clase).remove();
                         Personal.origen = e.target;
                         if (Personal.evt(Personal.origen))
                             Personal.visible = true;
@@ -30,6 +31,16 @@ class Personal {
                     }
                 });
             }
+            $(window).on("scroll", () => {
+                $("." + Personal.clase).remove();
+                if (Personal.visible)
+                    Personal.evt(ele);
+            });
+            $(window).on("resize", () => {
+                $("." + Personal.clase).remove();
+                if (Personal.visible)
+                    Personal.evt(ele);
+            });
         });
     }
     static valEvent(evento) {
@@ -41,20 +52,21 @@ class Personal {
             (clase !== undefined && clase !== null);
     }
     static evt(origen) {
+        Personal.clase = $(origen).data("class");
         let pos = $(origen).data("position");
         let info = $(origen).data("info");
-        Personal.clase = $(origen).data("class");
         let ele = $(`<div class="${Personal.clase}">${info}</div>`);
         $(ele).css("position", "absolute");
         $(ele).css("transform", "translate(0)");
         $(ele).css("transition", "transform 0.3s ease");
         if (!Personal.valParam(info, pos, Personal.clase)) {
             console.error("Error en los parámetros ingresados revise los attr data");
-            return;
+            return false;
         }
         $("body").append(ele);
         Direction_1.default.posicionar(pos, origen, ele, false);
         $(ele).show();
+        return true;
     }
 }
 Personal.visible = false;
