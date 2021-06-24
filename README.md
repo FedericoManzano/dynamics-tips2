@@ -133,6 +133,10 @@ npm install dynamics-tips
 ```
 yarn add dynamics-tips 
 ```
+```
+git clone https://github.com/FedericoManzano/dynamics-tips2
+```
+[dynamics-tips2.zip descarga](https://github.com/FedericoManzano/dynamics-tips2/archive/refs/heads/master.zip)
 
 ### Agregar módulo el Angular
 
@@ -175,4 +179,10 @@ Comment.init()
 Tips.init()
 Personal.init()
 ```
+## Instrucciones
+
+### Tips
+
+
+
 

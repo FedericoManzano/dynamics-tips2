@@ -233,4 +233,14 @@
   transition: transform 0.3s ease;
 }
 
+.toast {
+  position: fixed;
+  right: 20px;
+  top: 300px;
+  max-width: fit-content;
+  padding: 10px;
+  transition: top ease;
+  border-radius: 5px;
+}
+
 /*# sourceMappingURL=dynamics.css.map */

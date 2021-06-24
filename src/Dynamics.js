@@ -28,6 +28,9 @@ import App from "../build/app"
         },
         destroy: () => {
             App.dropDestroy()
+        },
+        toast: (config = {}) => {
+            App.toast(config)
         }
     }
 

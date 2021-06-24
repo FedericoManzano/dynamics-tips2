@@ -4,6 +4,7 @@ const Dropdown_1 = require("../build/moduls/Dropdown");
 const Tips_1 = require("../build/moduls/Tips");
 const Comment_1 = require("../build/moduls/Comment");
 const Personal_1 = require("../build/moduls/Personal");
+const Toast_1 = require("../build/moduls/Toast");
 class App {
     constructor() {
     }
@@ -24,6 +25,9 @@ class App {
     }
     static personal() {
         Personal_1.default.init();
+    }
+    static toast(config = {}) {
+        Toast_1.default.show(config);
     }
 }
 exports.default = App;

@@ -3,6 +3,8 @@ import Dropdown from "../build/moduls/Dropdown"
 import Tips from "../build/moduls/Tips"
 import Comment from "../build/moduls/Comment"
 import Personal from "../build/moduls/Personal"
+import Toast from "../build/moduls/Toast"
+
 
 class App {
 
@@ -31,6 +33,10 @@ class App {
 
     static personal (): any {
         Personal.init()
+    }
+
+    static toast(config = {}):any {
+        Toast.show(config)
     }
 }
 
