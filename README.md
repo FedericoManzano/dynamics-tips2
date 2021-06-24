@@ -219,7 +219,7 @@ En el pie de la página antes de cerrar el body agregamos el siguiente codigo pa
 
 ### Capturas
 
-![Captura 1 ToolTips](captures/captura1.png "Muestra ToolTips abajo")
+![Captura 1 ToolTips](captures/captura1Tips.png "Muestra ToolTips abajo")
 
 
 
