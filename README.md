@@ -221,8 +221,8 @@ En el pie de la página antes de cerrar el body agregamos el siguiente codigo pa
 
 ![Captura 1 ToolTips](captures/captura1Tips.png "Muestra ToolTips abajo")
 
-![Captura 2 ToolTips](captures/captura2Tips.png "Muestra ToolTips derecha")
+![Captura 2 ToolTips](captures/captura2tips.png "Muestra ToolTips derecha")
 
-![Captura 2 ToolTips](captures/captura4Tips.png "Muestra ToolTips izquierda")
+![Captura 3 ToolTips](captures/capturatips4.png "Muestra ToolTips izquierda")
 
 
