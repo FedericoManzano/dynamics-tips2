@@ -79,7 +79,9 @@
   min-width: 150px;
   max-width: fit-content;
   z-index: 100000;
-  display: none;
+  transform: translate(0);
+  transition: transform 0.5s ease;
+  user-select: none;
 }
 .dropdown-list-force .list,
 .dropdown-list-pasture .list,

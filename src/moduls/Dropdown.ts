@@ -17,24 +17,29 @@ class Dropdown {
     // Tiempo que tarda el efecto para mostrar el drop
     static TIME_EFECT : Number = 150 
     
-    // Listado de clases con 
-    // los diferentes colores de drop
-    static clases:string[] = [
+    static cla:string[] = [
         "gentle",
-        "dark",
-        "death",
-        "cure",
-        "toxic",
-        "haven",
-        "force",
-        "fish",
+        "dark"  ,
+        "death" ,
+        "cure"  ,
+        "toxic" ,
+        "haven" ,
+        "force" ,
+        "fish"  ,
         "grey"
-    ];
+    ]
 
 
     static init():void {
 
         
+
+        // Listado de clases con 
+        // los diferentes colores de drop
+        Dropdown.cla.forEach((ele) => {
+            $(".dropdown-list-"+ele).hide ()
+        })
+
         // Capa invisible que cubre todo el documento
         // Cuando el drop está activo y esta capa es presionada 
         // el drop desaparece
@@ -51,12 +56,11 @@ class Dropdown {
             $(".dropdown-trigger").children("span").remove()
             $(".dropdown-trigger").append(`<span class="dy-right"><span>`) 
 
-
-            // Desaparece todos los drop cualquiera sea la clase 
-            // que posean para definir el color del mismo
-            Dropdown.clases.forEach((ele:any) => {
-                $(".dropdown-list-"+ele).hide (Dropdown.TIME_EFECT)
+            
+            Dropdown.cla.forEach((ele) => {
+                $(".dropdown-list-"+ele).hide ()
             })
+
 
             // Desaparece la capa y el drop
             $(e.target).hide()
@@ -108,7 +112,7 @@ class Dropdown {
     static hideDrop (ele:any):void {
         $(ele).children("span").remove()
         $(ele).append(`<span class="dy-right"><span>`) 
-        $($(ele).data("target")).hide(Dropdown.TIME_EFECT)
+        $($(ele).data("target")).hide()
         $(".cover-drop").hide()
         Dropdown.visible = false 
     }
@@ -116,7 +120,7 @@ class Dropdown {
     static showDrop (ele:any):void {
         $(ele).children("span").remove()
         $(ele).append(`<span class="dy-down"><span>`) 
-        $($(ele).data("target")).show(Dropdown.TIME_EFECT)
+        $($(ele).data("target")).show()
         $(".cover-drop").show()
         Dropdown.visible = true 
     }

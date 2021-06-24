@@ -4,13 +4,16 @@ const $ = require("jquery");
 const Direction_1 = require("./position/Direction");
 class Dropdown {
     static init() {
+        Dropdown.cla.forEach((ele) => {
+            $(".dropdown-list-" + ele).hide();
+        });
         $("body").append(`<div class="cover-drop"></div>`);
         $(".cover-drop").hide();
         $(".cover-drop").on("click", (e) => {
             $(".dropdown-trigger").children("span").remove();
             $(".dropdown-trigger").append(`<span class="dy-right"><span>`);
-            Dropdown.clases.forEach((ele) => {
-                $(".dropdown-list-" + ele).hide(Dropdown.TIME_EFECT);
+            Dropdown.cla.forEach((ele) => {
+                $(".dropdown-list-" + ele).hide();
             });
             $(e.target).hide();
             Dropdown.visible = false;
@@ -48,14 +51,14 @@ class Dropdown {
     static hideDrop(ele) {
         $(ele).children("span").remove();
         $(ele).append(`<span class="dy-right"><span>`);
-        $($(ele).data("target")).hide(Dropdown.TIME_EFECT);
+        $($(ele).data("target")).hide();
         $(".cover-drop").hide();
         Dropdown.visible = false;
     }
     static showDrop(ele) {
         $(ele).children("span").remove();
         $(ele).append(`<span class="dy-down"><span>`);
-        $($(ele).data("target")).show(Dropdown.TIME_EFECT);
+        $($(ele).data("target")).show();
         $(".cover-drop").show();
         Dropdown.visible = true;
     }
@@ -78,7 +81,7 @@ class Dropdown {
 }
 Dropdown.visible = false;
 Dropdown.TIME_EFECT = 150;
-Dropdown.clases = [
+Dropdown.cla = [
     "gentle",
     "dark",
     "death",
