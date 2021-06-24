@@ -37,27 +37,67 @@ class Position {
     }
 
     /**
-     * 
-     * @param origin 
-     * @param element 
-     * @returns 
+     * Verifica el limite inferior es suficientemente
+     * amplio como para colocar el elemento en esta posición
+     * si esto es cierto entonces lo coloca en esta 
+     * posición caso contrario lo intenta hubicar arriba.
+     * @param origin elemento disparador del evento
+     * @param element elemrnto dinámico que se desea hubicar
+     * @returns true / false
      */
     static canDown (origin:any, element:any) {
+
+        // Altura total de la ventana visible 
+        // o tapasa por el scroll
         const windowHeight = $(window).height()
+
+        // espacio tapado por el scroll
         const wScrollTop = $(window).scrollTop() 
+
+        // espacio entre el origen y el tope superior
         const origenOffsetTop = $(origin).offset().top
+
+        // altura del elemento
         const origenHeight = $(origin).outerHeight()
+
+        // altura del elemento dinámico
         const tipsHeight = $(element).outerHeight()
+
+        /**
+         * Si el alto total del la ventana + 
+         * lo tapado por el scroll - (espacio entre el origen y el tope superior 
+         * + altura del origen) -> espacio debajo del origen 
+         * si este espacio es mayor a altura del elemento + 6 
+         * entonces puede ir debajo caso contrario no.
+         */
         return windowHeight + wScrollTop - 
                 (origenOffsetTop + origenHeight)  
                                 > tipsHeight + 6
     }
 
 
+    /**
+     * Verifica si el elemento puede ir arriba 
+     * del elemento origen.
+     * @param origin elemento origen
+     * @param element elemento dinámico
+     * @returns true / false
+     */
     static canUp (origin, element) {
+
+        // Offset por encima del elemento origen
         const offsetTopOrigen = $(origin).offset().top
+
+        // Espacio consumido por el scroll
         const wScrollTop = $(window).scrollTop() 
+
+        // altura del elemento dinámico
         const tipsHeight = $(element).outerHeight()
+
+        /**
+         * Espacio por encima del origen - espacio consumido por el scroll >
+         * altura del elemento dinámico + 6
+         */
         return offsetTopOrigen - wScrollTop >  tipsHeight + 6
     }
 

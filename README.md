@@ -187,7 +187,11 @@ Para agregar los tips a un elemento de la página tenemos que utilizar la clase 
 
 ```html
 <!-- Codigo de la página-->
-<button class="tips-ele" data-info="Este mensaje se va a mostrar en el tips" data-position="bottom" data-evt="hover">Boton</button>
+<div class="container mt-3">
+    <a class="btn btn-force tips-ele" data-position="left" data-evt="click"data-info="<strong>dynamics-tips2.0.0</strong>" >
+        Hola Mundo
+    </a>
+</div>
 ```
 
 En el pie de la página antes de cerrar el body agregamos el siguiente codigo para que funcione.
@@ -199,6 +203,23 @@ En el pie de la página antes de cerrar el body agregamos el siguiente codigo pa
 </body>
 </html>
 ```
+
+#### Posiciones (data-position)
+- Left
+- Right
+- Top
+- Bottom
+
+#### Eventos (data-evt)
+- hover
+- click
+
+#### Información (data-info)
+- Informacion que se quiere mostrar
+
+### Capturas
+
+![Captura 1 ToolTips](/captures/captura1.png "Muestra ToolTips abajo")
 
 
 
