@@ -183,6 +183,23 @@ Personal.init()
 
 ### Tips
 
+Para agregar los tips a un elemento de la página tenemos que utilizar la clase `.tips-ele` al elemento disparador luego al mismo elemento añadir los atributos `data-info` y `data-position` de manera tal de pasarle a la función correspondiente los datos necesarios.
+
+```html
+<!-- Codigo de la página-->
+<button class="tips-ele" data-info="Este mensaje se va a mostrar en el tips" data-position="bottom" data-evt="hover">Boton</button>
+```
+
+En el pie de la página antes de cerrar el body agregamos el siguiente codigo para que funcione.
+
+```html
+    <script>
+        Dynamics.initTips()
+    </script>
+</body>
+</html>
+```
+
 
 
 
