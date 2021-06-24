@@ -8,13 +8,13 @@ Podemos incorporar la librería a través de su CDN.
 
 ### Archivo de estilos dynamics.min.css
 ```html
-<link rel="stylesheet" href="https://rawcdn.githack.com/FedericoManzano/dynamics-tips2/19f47fbc1b650b39f7a414765a50f3e45c23c9de/dist/css/dynamics.min.css">
+<link rel="stylesheet" href="https://rawcdn.githack.com/FedericoManzano/dynamics-tips2/5b1314c0aff6b0f02a9fa77ceee9f0e5b5c0a6f1/dist/css/dynamics.min.css">
 ```
 
 ### Archivo de javascript dynamics.min.js
 
 ```html
-<script src="https://rawcdn.githack.com/FedericoManzano/dynamics-tips2/19f47fbc1b650b39f7a414765a50f3e45c23c9de/dist/js/dynamics.min.js"></script>
+<script src="https://rawcdn.githack.com/FedericoManzano/dynamics-tips2/5b1314c0aff6b0f02a9fa77ceee9f0e5b5c0a6f1/dist/js/dynamics.min.js"></script>
 ```
 
 ### Template
@@ -28,7 +28,7 @@ Podemos incorporar la librería a través de su CDN.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Link a los estilos necesarios para los componentes -->
-    <link rel="stylesheet" href="https://rawcdn.githack.com/FedericoManzano/dynamics-tips2/990cca802d0fc6d4659191a70ea6993a1a8fae5a/dist/css/dynamics.min.css">
+    <link rel="stylesheet" href="https://rawcdn.githack.com/FedericoManzano/dynamics-tips2/5b1314c0aff6b0f02a9fa77ceee9f0e5b5c0a6f1/dist/css/dynamics.min.css">
     <title>Hola Mundo</title>
 </head>
 <body>
@@ -47,7 +47,7 @@ Podemos incorporar la librería a través de su CDN.
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- dynamics.min.js -->
-    <script src="https://rawcdn.githack.com/FedericoManzano/dynamics-tips2/19f47fbc1b650b39f7a414765a50f3e45c23c9de/dist/js/dynamics.min.js"></script>
+    <script src="https://rawcdn.githack.com/FedericoManzano/dynamics-tips2/5b1314c0aff6b0f02a9fa77ceee9f0e5b5c0a6f1/dist/js/dynamics.min.js"></script>
 
     <script>
         // Inicializa los componentes por defecto
