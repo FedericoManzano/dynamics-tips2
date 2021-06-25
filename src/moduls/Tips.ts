@@ -57,7 +57,8 @@ class Tips {
 
     static evt (origen):void {
         let pos                 =   $(origen).data("position")
-        let info                =   $(origen).data("info")
+        let info                =   $(origen).data("info") === undefined 
+                                            ? "Hola soy un tips" : $(origen).data("info")
         let tips                =   $(`<div class="tips">${info}</div>`)
         $("body").append(tips)
         Direction.posicionar(pos, origen, tips, false)
