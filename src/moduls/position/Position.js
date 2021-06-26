@@ -116,17 +116,45 @@ class Position {
         return windowWidth - origenOffsetLeft - origenWidth - 80 > tipsWidth + 20
     }
 
+    /**
+     * Verifica si el elemento dinámico puede ir a la izquierda
+     * de el elemto origen.
+     * @param {*} origin 
+     * @param {*} element 
+     * @returns true / false
+     */
     static canLeft  (origin, element) {
         return $(origin).offset().left > $(element).width() + 20
     }
 
 
+    /**
+     * Posicionar el elemento dinámico alineado con 
+     * el elemento origen.
+     * @param {*} origin 
+     * @param {*} element 
+     * @returns Posicion en X donde se coloca el elemento
+     */
     static alignHorizontal (origin, element) {
+
+        // Cuando el elemento origen no tiene el mismo ancho 
+        // Que el elemento dinámico se calcula el corrimiento
+        // para que ambos elementos queden el el mismo eje
         var corr = ($(origin).outerWidth() ) - $(element).outerWidth()
         return Position.positionX(origin,element) +  Math.round(corr / 2)
     }
 
+    /**
+     * Posicionar el elemento dinámico alineado con 
+     * el elemento origen.
+     * @param {*} origin 
+     * @param {*} element 
+     * @returns Posicion en Y donde se coloca el elemento
+     */
     static alignVertical ( origin, element ){
+        // Cuando el elemento origen no tiene el mismo alto 
+        // Que el elemento dinámico se calcula el corrimiento
+        // para que ambos elementos queden el el mismo eje
         var corr = $(origin).outerHeight()  - $(element).outerHeight()
         return Position.positionY(origin,element) + Math.round(corr / 2)
     }

@@ -8,9 +8,6 @@ import Toast from "./moduls/Toast"
 
 class App {
 
-    constructor() {
-        
-    }
     static start ()  {
         return "Esta es una prueba de los test uitarios";
     }

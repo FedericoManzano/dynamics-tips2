@@ -15,42 +15,43 @@ class Tips {
     static init() {
         
         $(".tips-ele").each((index, ele) => {
-            let evento = $(ele).data("evt")
-            
-            if( Tips.valEvent(evento) ) {
-                
-                $( ele ).on("mouseenter", ( e ) => {
-                    Tips.origen = e.target
-                    Tips.evt( Tips.origen )
-                    Tips.visible = true
-                })
-                $(ele).on("mouseleave", () => {
-                    $(".tips").remove()
-                    Tips.visible = false
-                })
-            } else {
-                $(ele).on("click", (e)  => {
-                    if(!Tips.visible) {
-                        Tips.origen = e.target
-                        Tips.evt(Tips.origen)
-                        Tips.visible = true
-                    }else {
-                        $(".tips").remove()
-                        Tips.visible = false
-                    }
-                })
-            }
+            let evento = $( ele ).data("evt")
+            if( Tips.valEvent( evento ) ) 
+                Tips.eventMouse( ele )
+            else 
+                Tips.eventClick( ele )
         })
 
         $(window).on("scroll", (e) => {
-            if(Tips.visible && Tips.origen !== null) {
-                Tips.evt(Tips.origen)
-            }
+            if(Tips.visible && Tips.origen !== null) 
+                Tips.evt( Tips.origen )
         })
 
-        $(window).on("resize", (e) => {
-            if(Tips.visible && Tips.origen !== null) {
+        $( window ).on( "resize" , (e) => {
+            if(Tips.visible && Tips.origen !== null) 
                 Tips.evt(Tips.origen)
+        })
+    }
+
+    static eventMouse (elemento) {
+        $( elemento ).on("mouseenter", ( e ) => {
+            Tips.origen = e.target
+            Tips.evt( Tips.origen )
+        })
+        $( elemento ).on("mouseleave", () => {
+            $(".tips").remove()
+        })
+    }
+
+    static eventClick (elemento) {
+        $(elemento).on("click", (e)  => {
+            if(!Tips.visible) {
+                Tips.origen = e.target
+                Tips.evt(Tips.origen)
+                Tips.visible = true
+            }else {
+                $(".tips").remove()
+                Tips.visible = false
             }
         })
     }
