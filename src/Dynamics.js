@@ -1,4 +1,4 @@
-import App from "../build/app"
+import App from "./app"
 
 (function() {
 
