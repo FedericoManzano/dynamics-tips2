@@ -1,5 +1,5 @@
 // JQUERY
-import * as $ from "jquery"
+import $ from "jquery"
 
 // Dirección posicionamiento del elemento dinámico
 import Direction from "./position/Direction"

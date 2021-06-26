@@ -128,8 +128,8 @@ class Dropdown {
 
 
     static position (elemento)  {
-        let drop    = $(elemento).data("target")
-        let pos     = $(elemento).data("position")
+        let drop = $(elemento).data("target")
+        let pos = $(elemento).data("position")
         if( pos === undefined || pos === null ) 
             Direction.posicionar("bottom", elemento, drop, false)
         else 
@@ -141,7 +141,7 @@ class Dropdown {
         $(".cover-drop").off("click")
         $(".cover-drop").remove()
         $(".dropdown-trigger").off("click")
-        $(".dropdown-trigger").each( (ele, index) => {
+        $(".dropdown-trigger").each( ( ele, index ) => {
             $( $( ele ).data("target") ).remove()
         })
     }

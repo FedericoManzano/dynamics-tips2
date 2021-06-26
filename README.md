@@ -6,23 +6,6 @@ Elementos dinámicos para páginas web incluye Dropdown, comentarios dinámicos,
 
 ```
 | > dynamics-tips
-    | build
-        | moduls
-            | position
-                * BottomDirection.js
-                * TopDirection.js
-                * LeftDirection.js
-                * RightDirection.js
-                * Direction.js
-                * Position.js
-                * Offset.js
-            * Comment.js
-            * Dropdown.js
-            * Personal.js
-            * Tips.js
-            | test
-                (Test Unitarios)
-        * app.js
     | dist
         | css
             | fonts
@@ -45,13 +28,13 @@ Elementos dinámicos para páginas web incluye Dropdown, comentarios dinámicos,
     | src
         | moduls
             | position
-                * BottomDirection.ts
-                * TopDirection.ts
-                * LeftDirection.ts
-                * RightDirection.ts
-                * Direction.ts
-                * Position.ts
-                * Offset.ts
+                * BottomDirection.js
+                * TopDirection.js
+                * LeftDirection.js
+                * RightDirection.js
+                * Direction.js
+                * Position.js
+                * Offset.js
             * Comment.js
             * Dropdown.js
             * Personal.js
@@ -60,11 +43,11 @@ Elementos dinámicos para páginas web incluye Dropdown, comentarios dinámicos,
                 (Test Unitarios)
         * app.js
         * dynamics.js (main de la lib)
+    * babel.config.json
     * LICENSE
     * package.look.json
     * package.json
     * REASME.md
-    * tsconfig.json
     * webpack.config.js
 
 ```
@@ -138,38 +121,16 @@ git clone https://github.com/FedericoManzano/dynamics-tips2
 ```
 [dynamics-tips2.zip descarga](https://github.com/FedericoManzano/dynamics-tips2/archive/refs/heads/master.zip)
 
-### Agregar módulo el Angular
-
-```js
-import Dropdown from "dynamics-tips/src/moduls/Dropdown";
-import Comment from "src/moduls/Comment";
-import Tips from "src/moduls/Tips";
-import Personal from "src/moduls/Personal";
-
-class ClasePrueba implements OnInit, AfterViewInit {
-
-    // ... Codigo del componente 
-
-    // Ciclo de vida del componente
-    AfterViewInit ():void {
-        Dropdown.init()
-        Comment.init()
-        Tips.init()
-        Personal.init()
-    }
-}
-```
-
 ### En Vue o React
 
 Se puede agregar directamente los archivos `js` del directorio build.
 
 ```js
 // Archivos Transpilados a js
-import Dropdown from "dynamics-tips/build/Dropdown" 
-import Comment from "dynamics-tips/build/Comment" 
-import Tips from "dynamics-tips/build/Tips" 
-import Personal from "dynamics-tips/build/Personal" 
+import Dropdown from "dynamics-tips/src/moduls/Dropdown" 
+import Comment from "dynamics-tips/src/moduls/Comment" 
+import Tips from "dynamics-tips/src/moduls/Tips" 
+import Personal from "dynamics-tips/src/moduls/Personal" 
 
 // ... Ciclo de vida del componente despues 
 // ... inicializada la vista
