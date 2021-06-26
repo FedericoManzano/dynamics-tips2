@@ -101,7 +101,13 @@ class Position {
     }
 
 
-
+    /**
+     * Verifica si el elemento dinámico puede ir a la derecha
+     * de el elemto origen.
+     * @param {*} origin 
+     * @param {*} element 
+     * @returns true / false
+     */
     static canRight ( origin, element ) {
         const windowWidth = $(window).width()
         const origenOffsetLeft = $(origin).offset().left

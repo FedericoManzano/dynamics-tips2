@@ -8,11 +8,6 @@ import Direction from "./position/Direction"
  * aparece en pantalla un mensaje aclaratorio
  */
 class Comment {
-
-    // Elemento que define la visualización 
-    // A través del evento click
-    static visible = false
-
     // Elemento origen 
     static origen = null
 
@@ -38,20 +33,19 @@ class Comment {
                 // Salida del mouse
                 $( ".com" ).on("mouseleave", () => $(".comment").remove())
             }else {
+               
+                $( "body" ).append($( "<div class='cover-drop'></div>" ))
+                $(".cover-drop").hide()
                 $(ele).on("click", (e) => {
-                    // Pregunta si es visible o no el 
-                    // comentario
-                    if( !Comment.visible ) {
+                    // Carga el evento aparece el comentario
+                    Comment.event( e.target )
+                    $(".cover-drop").show()
+                })
 
-                        // Carga el evento aparece el comentario
-                        Comment.event( e.target )
-                        Comment.visible = true
-                    }else {
-
-                        // Remueve el elemento dinámico
-                        $(".comment").remove()
-                        Comment.visible = false
-                    }
+                $(".cover-drop").on("click", (e) => {
+                    // Remueve el elemento dinámico
+                    $(".comment").remove()
+                    $(".cover-drop").hide()
                 })
             }
 
