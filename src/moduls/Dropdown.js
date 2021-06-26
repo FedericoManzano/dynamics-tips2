@@ -5,6 +5,10 @@ import $ from "jquery"
 import Direction from "./position/Direction"
 
 
+// TEST
+//const $ = require("jquery") 
+//const Direction = require("./position/Direction") 
+
 /**
  * Clase Drop para mostrar un listado dinamico 
  * cerca de un objeto disparador.
@@ -144,3 +148,4 @@ class Dropdown {
 }
 
 export default Dropdown
+//module.exports = Position

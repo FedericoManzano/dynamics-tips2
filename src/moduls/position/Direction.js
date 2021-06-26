@@ -4,6 +4,12 @@ import DireccionIzquierda   from    "./LeftDirection"
 import DireccionDerecha     from    "./RightDirection"
 
 
+/*const DireccionAbajo = require("./BottomDirection") 
+const DireccionArriba = require("./TopDirection") 
+const DireccionIzquierda = require("./LeftDirection") 
+const DireccionDerecha = require("./RightDirection") */
+
+
 class Direction {
     static posicionar (posicion, origen, ele, mueca = false) {
         let res = false
@@ -94,3 +100,4 @@ class Direction {
 }
 
 export default Direction;
+//module.exports = Direction

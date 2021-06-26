@@ -4,7 +4,7 @@
   "description": "Elementos dinamicos de paginas web.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha build/test/**/*.spec.js",
+    "test": "mocha src/test/**/*.spec.js",
     "build": "webpack"
   },
   "keywords": [
@@ -32,6 +32,8 @@
     "@babel/preset-env": "^7.14.7",
     "babel": "^6.23.0",
     "babel-loader": "^8.2.2",
+    "chai": "^4.3.4",
+    "mocha-jsdom": "^2.0.0",
     "webpack": "^5.40.0",
     "webpack-cli": "^4.7.2"
   },

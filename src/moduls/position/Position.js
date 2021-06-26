@@ -1,4 +1,4 @@
-
+//const $ = require("jquery") 
 import $ from "jquery"
 
 /**
@@ -108,7 +108,7 @@ class Position {
      * @param {*} element 
      * @returns true / false
      */
-    static canRight ( origin, element ) {
+    static canRight ( origin, element) {
         const windowWidth = $(window).width()
         const origenOffsetLeft = $(origin).offset().left
         const origenWidth = $(origin).width()
@@ -137,17 +137,17 @@ class Position {
         return despIzq <= 0 ? despIzq*-1 : 0
     }
 
-    static limitTop ( element ) {
+    static limitTop ( element  ) {
         const despArr = $(element).offset().top - $(window).scrollTop()
         return despArr <= 0 ? (despArr - 6)*-1 : 0
     }
 
-    static limitRight  ( element ) {
+    static limitRight  ( element  ) {
         const despDer = $(window).width() - $(element).offset().left - $(element).outerWidth()
         return despDer <= 0 ? Math.round((despDer - 6)) : 0
     }
 
-    static positionTop (origin, ele) {
+    static positionTop (origin, ele, $) {
         $(ele).css("top", $(origin).offset().top - $(ele).outerHeight() - 5)
         $(ele).css("left",  Position.alignHorizontal(origin,ele))
         
@@ -206,3 +206,5 @@ class Position {
 }
 
 export default Position
+
+//module.exports = Position

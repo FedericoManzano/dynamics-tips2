@@ -1,3 +1,6 @@
+
+//const Position = require("./Position") 
+//const Offset = require("./Offset") 
 import Position from "./Position";
 import Offset   from "./Offset";
 
@@ -8,3 +11,4 @@ class BottomDirection  {
 }
 
 export default BottomDirection;
+//module.exports = BottomDirection
