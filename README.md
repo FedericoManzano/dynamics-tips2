@@ -187,3 +187,34 @@ En el pie de la página antes de cerrar el body agregamos el siguiente codigo pa
 ![Captura 3 ToolTips](captures/capturatips4.png "Muestra ToolTips izquierda")
 
 
+### Comment
+
+Para agregar los tips a un elemento de la página tenemos que utilizar la clase `.com` al elemento disparador luego al mismo elemento añadir los atributos `data-info` y `data-position` de manera tal de pasarle a la función correspondiente los datos necesarios. También podemos utilizar `data-evt` para definir el evento que se dispara este puede ser hover o click.
+
+```html 
+<h1 class="com" style="width:20%"
+    data-position="bottom"
+    data-info="Este es un tips de <strong>dynamics-tips2.0.0</strong>" 
+    data-evt="click" 
+    data-class="clase">
+    Hola Mundo
+</h1>
+```
+
+En el pie de la página antes de cerrar el body agregamos el siguiente codigo para que funcione.
+
+```html
+    <script>
+        Dynamics.initTips()
+    </script>
+</body>
+</html>
+```
+
+### Capturas
+
+![Captura 1 ToolTips](captures/captura1Tips.png "Muestra ToolTips abajo")
+
+![Captura 2 ToolTips](captures/captura2tips.png "Muestra ToolTips derecha")
+
+![Captura 3 ToolTips](captures/capturatips4.png "Muestra ToolTips izquierda")
