@@ -215,7 +215,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  z-index: 10000;
+  z-index: 100000;
   transform: translate(0);
   transition: transform 0.3s ease;
 }
@@ -227,7 +227,7 @@
   border-radius: 5px;
   border: 1px solid #0000002c;
   max-width: 250px !important;
-  z-index: 10000;
+  z-index: 100000;
   position: absolute;
   display: none;
   transform: translate(0);
@@ -242,6 +242,7 @@
   padding: 10px;
   transition: top ease;
   border-radius: 5px;
+  z-index: 100000;
 }
 
 /*# sourceMappingURL=dynamics.css.map */

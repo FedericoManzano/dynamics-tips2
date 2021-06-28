@@ -1,5 +1,6 @@
 import $ from "jquery"
 import Direction from "./position/Direction"
+import Position from "./position/Position"
 
 /**
  * Comentarios dinámicos para sitios web
@@ -9,58 +10,48 @@ import Direction from "./position/Direction"
  */
 class Comment {
 
+    static cover
+    static visible = false
+    static init(cover) {
+        Comment.cover = cover
 
-    constructor(cover) {
-        this.cover = cover
-        this.origen = null
-    }
+        $( ".com" ).each((index, ele) => {
+            let evento = $(ele).data("evt")
 
-    generate() {
-        $(".com").each( (index, ele) => { 
-            // Levanta el tipo de evento seleccionado
-            // data-evt="hover/click"
-            // Por defecto es hover
-
-            let evento = $( ele ).data("evt")
-
-            if( Comment.valEvent( evento ) ) {
-                // Entrada del mouse al area del elemento
-                // Clase .com para determinar que elementos llevan
-                // Un Comentario dinámico
-                $( ".com" ).on("mouseenter", ( e ) => Comment.event( e.target ))  
+            if( evento === "hover" ) {
+                $( ele ).on("mouseenter", ( e ) => {Comment.event( e.target ); Comment.visible = true }) 
 
                 // Salida del mouse
-                $( ".com" ).on("mouseleave", () => $(".comment").remove())
-            }else {
+                $( ele ).on("mouseleave", () => {$(".comment").remove(); Comment.visible = false })
+               
+            
+            } else {
                 $(ele).on("click", (e) => {
-                    // Carga el evento aparece el comentario
-                    Comment.event( e.target )
-                    this.cover.show()
+                    Comment.event(e.target)
+                    Comment.cover.show()
+                    Comment.visible = true
                 })
 
                 $(".cover-drop").on("click", (e) => {
                     // Remueve el elemento dinámico
                     $(".comment").remove()
-                    this.cover.hide()
+                    Comment.cover.hide()
+                    Comment.visible = false
+                })
+
+                $(window).on("resize", () => {
+                    $(".comment").remove()
+                    if(Comment.visible)
+                        Comment.event(ele)
+                })
+
+                $(window).on("scroll", () => {
+                    $(".comment").remove()
+                    if(Comment.visible)
+                        Comment.event(ele)
                 })
             }
-
-            $(window).on("scroll", () => {
-                $(".comment").remove()
-                if(Comment.visible) 
-                    Comment.event(ele)
-            })
-
-            $(window).on("resize", () => {
-                $(".comment").remove()
-                if(Comment.visible)  
-                    Comment.event(ele) 
-            })
         })
-    }
-
-    static init(cover) {
-        new Comment(cover).generate()
     }
 
     /**
@@ -70,34 +61,30 @@ class Comment {
      */
     static event (origen) {
 
-        // Configuro ele elemento 
-        // disparador
-        this.origen = origen
-
         // Levantar los datos de los atributos 
         // data del elemento disparador
-        let info    = $(this.origen).data("info")
-        let pos     = $(this.origen).data("position")
+        let info    =   $(origen).data( "info" )
+        let pos     =   $(origen).data( "position" )
 
         /**
          * Validar la información proveniente de los 
          * attr data del elemento disparador
          */
-        if(!Comment.valParam(info, pos)) {
+        if( !Comment.valParam( info, pos ) ) {
             info = "Esto es un comentario"
             pos = "bottom"
         }
 
-
         // Creación del objeto dinámico
         let ele = $(`<div class="comment">${info}</div>`)
-       
+   
         // Agrego el elemento dinámico
-        $( "body" ).append(ele)
+        $( "body" ).append( ele )
         $( ele ).show()
 
         // Posiciono el objeto dinámico
-        Direction.posicionar( pos, Comment.origen, ele )
+        Direction.posicionar( pos, origen, ele, false )
+        
     }
 
     /**
