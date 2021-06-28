@@ -4,7 +4,7 @@ import Tips from "./moduls/Tips"
 import Comment from "./moduls/Comment"
 import Personal from "./moduls/Personal"
 import Toast from "./moduls/Toast"
-
+import Cover from "./moduls/cover/Cover"
 
 class App {
 
@@ -13,7 +13,7 @@ class App {
     }
 
     static drop ()  {
-        Dropdown.init()
+        Dropdown.init(Cover)
     }
 
     static dropDestroy ()  {
@@ -25,7 +25,7 @@ class App {
     }
 
     static comment () {
-        Comment.init()
+        Comment.init(Cover)
     }
 
     static personal () {
@@ -34,6 +34,10 @@ class App {
 
     static toast(config = {}) {
         Toast.show(config)
+    }
+
+    static cover () {
+        Cover.init()
     }
 }
 

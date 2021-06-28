@@ -21,10 +21,12 @@ import App from "./app"
             destroyDrop()
         },
         init: () => {
+            App.cover()
             App.drop()
             App.tips()
             App.comment()
             App.personal()
+            
         },
         destroy: () => {
             App.dropDestroy()

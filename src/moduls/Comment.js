@@ -8,23 +8,22 @@ import Direction from "./position/Direction"
  * aparece en pantalla un mensaje aclaratorio
  */
 class Comment {
-    // Elemento origen 
-    static origen = null
 
 
-    static init() {
-        
-        $(".com").each((index, ele) => {
+    constructor(cover) {
+        this.cover = cover
+        this.origen = null
+    }
 
+    generate() {
+        $(".com").each( (index, ele) => { 
             // Levanta el tipo de evento seleccionado
             // data-evt="hover/click"
             // Por defecto es hover
-            let evento = $( ele ).data("evt")
-            
-            // Valida que el evento sea hover
-            // Caso contrario carga el evento click
-            if( Comment.valEvent( evento ) ) {
 
+            let evento = $( ele ).data("evt")
+
+            if( Comment.valEvent( evento ) ) {
                 // Entrada del mouse al area del elemento
                 // Clase .com para determinar que elementos llevan
                 // Un Comentario dinámico
@@ -33,19 +32,16 @@ class Comment {
                 // Salida del mouse
                 $( ".com" ).on("mouseleave", () => $(".comment").remove())
             }else {
-               
-                $( "body" ).append($( "<div class='cover-drop'></div>" ))
-                $(".cover-drop").hide()
                 $(ele).on("click", (e) => {
                     // Carga el evento aparece el comentario
                     Comment.event( e.target )
-                    $(".cover-drop").show()
+                    this.cover.show()
                 })
 
                 $(".cover-drop").on("click", (e) => {
                     // Remueve el elemento dinámico
                     $(".comment").remove()
-                    $(".cover-drop").hide()
+                    this.cover.hide()
                 })
             }
 
@@ -63,6 +59,10 @@ class Comment {
         })
     }
 
+    static init(cover) {
+        new Comment(cover).generate()
+    }
+
     /**
      * Ejecuta lacción del evento disparado
      * por el usuario
@@ -72,12 +72,12 @@ class Comment {
 
         // Configuro ele elemento 
         // disparador
-        Comment.origen = origen
+        this.origen = origen
 
         // Levantar los datos de los atributos 
         // data del elemento disparador
-        let info    = $(Comment.origen).data("info")
-        let pos     = $(Comment.origen).data("position")
+        let info    = $(this.origen).data("info")
+        let pos     = $(this.origen).data("position")
 
         /**
          * Validar la información proveniente de los 

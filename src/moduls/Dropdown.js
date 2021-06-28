@@ -17,7 +17,7 @@ class Dropdown {
 
     // Drop visible = true no visible = false
     static visible = false
-    
+    static cover = null
     static cla = [
         "gentle",
         "dark"  ,
@@ -31,21 +31,15 @@ class Dropdown {
     ]
 
 
-    static init() {
+    static init( cover ) {
 
-        
+        Dropdown.cover = cover
 
         // Listado de clases con 
         // los diferentes colores de drop
         Dropdown.cla.forEach((ele) => {
             $(".dropdown-list-"+ele).hide ()
         })
-
-        // Capa invisible que cubre todo el documento
-        // Cuando el drop está activo y esta capa es presionada 
-        // el drop desaparece
-        $("body").append(`<div class="cover-drop"></div>`)
-        $(".cover-drop").hide()
 
 
         $(".cover-drop").on("click", (e) => {
@@ -64,7 +58,7 @@ class Dropdown {
 
 
             // Desaparece la capa y el drop
-            $(e.target).hide()
+            Dropdown.cover.hide()
 
             // Defino la bandera para saber si el drop 
             // es visible o no 
@@ -114,22 +108,22 @@ class Dropdown {
         $(ele).children("span").remove()
         $(ele).append(`<span class="dy-right"><span>`) 
         $($(ele).data("target")).hide()
-        $(".cover-drop").hide()
+        Dropdown.cover.hide()
         Dropdown.visible = false 
     }
 
     static showDrop (ele) {
-        $(ele).children("span").remove()
-        $(ele).append(`<span class="dy-down"><span>`) 
+        $( ele ).children("span").remove()
+        $( ele ).append(`<span class="dy-down"><span>`) 
         $($(ele).data("target")).show()
-        $(".cover-drop").show()
+        Dropdown.cover.show()
         Dropdown.visible = true 
     }
 
 
     static position (elemento)  {
         let drop = $(elemento).data("target")
-        let pos = $(elemento).data("position")
+        let pos  = $(elemento).data("position")
         if( pos === undefined || pos === null ) 
             Direction.posicionar("bottom", elemento, drop, false)
         else 
@@ -138,8 +132,6 @@ class Dropdown {
 
 
     static destroy() {
-        $(".cover-drop").off("click")
-        $(".cover-drop").remove()
         $(".dropdown-trigger").off("click")
         $(".dropdown-trigger").each( ( ele, index ) => {
             $( $( ele ).data("target") ).remove()

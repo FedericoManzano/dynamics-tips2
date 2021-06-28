@@ -1,7 +1,7 @@
 
 const assert    = require("assert")
 const expect    = require("chai")
-const jsdom = require("jsdom");
+const jsdom     = require("jsdom");
 const { JSDOM } = jsdom;
 const Dropdown  = require("../moduls/Dropdown")
 
