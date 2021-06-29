@@ -2,7 +2,7 @@
 
 Elementos dinámicos para páginas web incluye Dropdown, comentarios dinámicos, tooltips y personalizados.
 
-[![dynamics-tips](https://img.shields.io/badge/dynamicstips-2.0.0-red.svg)](https://github.com/FedericoManzano/dynamics-tips2)
+[![dynamics-tips](https://img.shields.io/badge/dynamicstips-2.0-red.svg)](https://github.com/FedericoManzano/dynamics-tips2)
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/FedericoManzano/dynamics-tips2/blob/master/LICENSE)
 
@@ -204,7 +204,7 @@ En el pie de la página antes de cerrar el body agregamos el siguiente codigo pa
 #### Información (data-info)
 - Informacion que se quiere mostrar
 
-### Capturas
+#### Capturas
 
 ![Captura 1 ToolTips](captures/captura1Tips.png "Muestra ToolTips abajo")
 
@@ -316,3 +316,141 @@ Despliega una lista dinámica con enlaces a determinados lugares de la página o
 - fish
 - toxic
 - grey
+
+### Toast
+
+Elementos dinámicos que muestran el resultado de determinado evento generado por el usuario. Dependiendo el resultado va a mostrar un `toast` con determinadas características para informar al usuario sobre el evento recientemente generado.
+
+```html 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link a los estilos necesarios para los componentes -->
+    <link rel="stylesheet" href="../dist/css/dynamics.css">
+
+    <style>
+        /**
+            Clases css para añadire a l toast
+        */
+        .borde {
+            border-radius:   20px;  
+        }
+
+        .texto {
+            font-weight:     600;
+            color:          orange;
+        }
+
+    </style>
+
+   
+
+    <title>TOAST</title>
+</head>
+<body>
+
+    <!-- LLama  a la función que despliega el Toast-->
+    <button onclick="testToast()">Boton</button>
+
+
+    <!-- dynamics.min.js -->
+    <script src="../dist//js/dynamics.js"></script>
+
+    <script>
+        // Inicializa los componentes por defecto
+        Dynamics.init()
+
+        function testToast() {
+            /**
+             *  Confira el toast
+             * */
+            const conf = {
+                html: "Esto es un toast personalizado", // texto a mostrar
+                bg: "#181C22", // color de fondo del toast por defecto es negro
+                color: "white",// Color del texto de toast por defecto el blanco
+                classes: [ // clases css definidas por el usuario por defecto no hay
+                    "texto", 
+                    "borde"
+                ]
+            }
+            // LLama al método estático para imprimir el toast
+            Dynamics.toast(conf)
+        }
+    </script>
+</body>
+</html>
+```
+
+#### Atributos configuración
+
+- html: Texto o Html con la info a mostrar
+- bg: Color de fondo del Toast Hexadecimal
+- color: Color del texto Hexadecimal
+- classes: [] nombre de las clases css para darle estilos al toast.
+
+
+### Personalizados
+
+Elementos similires a los tips pero con la posibilidad de darle estilos. No vienen con estilos definidos el usuario debe pasarle una clase CSS para que através de ella el elemento tome forma.
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <style>
+
+        /**
+            Clase para pasar por parámetro
+        */
+        .claseAVincular {
+            padding: 5px;
+            font-size: 14px;
+            background-color: rgba(0, 0, 0, 0.788);
+            text-align: center;
+            max-width: fit-content;
+            position: absolute;
+            color: white;
+        }
+    </style>
+
+
+    <!-- Link a los estilos necesarios para los componentes -->
+    <link rel="stylesheet" href="../dist/css/dynamics.css">
+    <title>Personalizados</title>
+</head>
+<body>
+
+     <button class="personal" data-position="top" data-class="claseAVincular" data-evt="hover">Botón Disparador</button>
+
+
+    <!-- JQUERY min -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- dynamics.min.js -->
+    <script src="../dist/js/dynamics.js"></script>
+
+    <script>
+        // Inicializa los componentes por defecto
+        Dynamics.init()
+    </script>
+</body>
+</html>
+```
+
+Los attr son los mismo a los de los tips la única diferencia es el attr data-class con el valor de la clase CSS personalizada obligatoria para su funcionamiento.
+
+## LICENCIA
+
+[MIT](https://github.com/FedericoManzano/dynamics-tips2/blob/master/LICENSE)
+
+Dynamics Tips © derechos reservados.
+
