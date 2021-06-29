@@ -1,6 +1,11 @@
-# Dynamics Tips 2.0.0
+# Dynamics Tips
 
-Elementos dinámicos para páginas web incluye Dropdown, comentarios dinámicos, tooltips y personalizados
+Elementos dinámicos para páginas web incluye Dropdown, comentarios dinámicos, tooltips y personalizados.
+
+[![dynamics-tips](https://img.shields.io/badge/dynamicstips-2.0.0-red.svg)](https://github.com/FedericoManzano/dynamics-tips2)
+
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/FedericoManzano/dynamics-tips2/blob/master/LICENSE)
+
 
 ## Estructura
 
@@ -211,8 +216,82 @@ En el pie de la página antes de cerrar el body agregamos el siguiente codigo pa
 </html>
 ```
 
-### Capturas
+#### Capturas
 
 ![Captura 1 Comment](captures/captura1Comment.png "Muestra Comment abajo")
 
 ![Captura 2 Comment](captures/captura2Comment.png "Muestra Comentario derecha")
+
+#### Attr Data
+
+A través de estos atributos podemos configurar la posición, el evento disparador y la información del comentario dinámicos. En el elementos disparador utilizamos los attr `data-info`, `data-evt`, `data-position`.
+
+- data-position 
+    - buttom / abajo
+    - top / arriba
+    - left / izquierda
+    - right / derecha
+- data-evt
+    - hover
+    - click
+- data-info
+    - (información a mostrar texto plano o html)
+ 
+
+### Dropdown
+
+Despliega una lista dinámica con enlaces a determinados lugares de la página o sitio en desarrollo por lo general estas listas ocupan mucho espacio en el documentos de esta forma podemos desplegar una lista y hacerla desaparecer cuando no la necesitemos.
+
+```html
+
+<!-- 
+    El attr data-target apunta a la lista desplegable y el objeto disparador
+    tiene la clase (.dropdown-trigger).
+-->
+<div class="container mt-8">
+    <a href="#" class="dropdown-trigger btn-lg btn-force" data-target="#drop" data-position="bottom">Inicio</a>
+</div>
+
+ <!-- 
+    El id puede ser opcional pero tiene que ser el 
+    mismo que el configurado en data-target
+    ----------------------------------------------------
+    La clase agregada el la lista es dropdown-list-[color]
+    donde color es un parámetro para definir el color de la lista
+    en este caso dark. 
+ -->   
+<div id="drop" class="dropdown-list-dark ">
+    <ul class="list">
+        <li><a href="#">Porfolio</a></li>
+        <li><a href="#">Servicios</a></li>
+        <li><a href="#">Contratación</a></li>
+        <li><a href="#">Items</a></li>
+    </ul>
+</div>
+```
+
+#### Capturas
+
+![Captura 1 Drop](captures/drop1.png "Muestra Drop abajo")
+
+![Captura 2 Drop](captures/drop2.png "Muestra Drop derecha")
+
+- data-position 
+    - buttom / abajo
+    - top / arriba
+    - left / izquierda
+    - right / derecha
+- data-target
+    - id de la lista a desplegar
+
+#### Colores
+
+- dark
+- pasture
+- cure 
+- gentle 
+- death
+- force
+- fish
+- toxic
+- grey
