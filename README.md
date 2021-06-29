@@ -13,6 +13,20 @@ Elementos dinámicos para páginas web incluye Dropdown, comentarios dinámicos,
     - [CDN Estilos](https://github.com/FedericoManzano/dynamics-tips2#archivo-de-estilos-dynamicsmincss)
     - [CDN js](https://github.com/FedericoManzano/dynamics-tips2#archivo-de-javascript-dynamicsminjs)
     - [Template](https://github.com/FedericoManzano/dynamics-tips2#template)
+- [Instalación](https://github.com/FedericoManzano/dynamics-tips2#instalaci%C3%B3n)
+- [Vue / React](https://github.com/FedericoManzano/dynamics-tips2#en-vue-o-react)
+- [Instrucciones](https://github.com/FedericoManzano/dynamics-tips2#instrucciones)
+    - [Tips](https://github.com/FedericoManzano/dynamics-tips2#tips)
+        - [Posiciones](https://github.com/FedericoManzano/dynamics-tips2#posiciones-data-position)
+        - [Eventos](https://github.com/FedericoManzano/dynamics-tips2#eventos-data-evt)
+        - [Información](https://github.com/FedericoManzano/dynamics-tips2#informaci%C3%B3n-data-info)
+        - [Capturas](https://github.com/FedericoManzano/dynamics-tips2#capturas)
+    - [Comentarios](https://github.com/FedericoManzano/dynamics-tips2#comment)
+        - [Capturas](https://github.com/FedericoManzano/dynamics-tips2#capturas-1)
+        - [AttrData](https://github.com/FedericoManzano/dynamics-tips2#attr-data)
+- [Dropdown](https://github.com/FedericoManzano/dynamics-tips2#dropdown)
+    [Capturas](https://github.com/FedericoManzano/dynamics-tips2#capturas-2)
+
 
 ## Estructura
 
