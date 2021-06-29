@@ -8,7 +8,7 @@ Elementos dinámicos para páginas web incluye Dropdown, comentarios dinámicos,
 
 ## Contenido
 
-- [Estructura] (https://github.com/FedericoManzano/dynamics-tips2#estructura)
+- [Estructura](https://github.com/FedericoManzano/dynamics-tips2#estructura)
 - [CDN](https://github.com/FedericoManzano/dynamics-tips2#cdn)
     - [CDN Estilos](https://github.com/FedericoManzano/dynamics-tips2#archivo-de-estilos-dynamicsmincss)
     - [CDN js](https://github.com/FedericoManzano/dynamics-tips2#archivo-de-javascript-dynamicsminjs)
