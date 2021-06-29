@@ -21,7 +21,7 @@ class App {
     }
 
     static tips ()  {
-        Tips.init()
+        Tips.init(Cover)
     }
 
     static comment () {
@@ -29,7 +29,7 @@ class App {
     }
 
     static personal () {
-        Personal.init()
+        Personal.init(Cover)
     }
 
     static toast(config = {}) {

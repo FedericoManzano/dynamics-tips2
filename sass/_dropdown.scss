@@ -5,6 +5,7 @@
 .dropdown-trigger {
     padding-right:  $padding-right  !important;
     position:       relative        !important;
+    z-index:        1               !important;
 }
 
 

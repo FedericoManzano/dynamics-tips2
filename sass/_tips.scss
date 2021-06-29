@@ -2,7 +2,7 @@
     max-width:      fit-content;
     padding:        7px;
     font-size:      1em;
-    color:          white !important;
+    color:          white;
     background-color: #000000bb !important;
     position:       absolute;
     display:        none;
@@ -14,4 +14,8 @@
     z-index: 100000;
     transform:  translate(0);
     transition: transform 0.3s ease;
+}
+
+.tips-ele {
+    z-index: 1 !important;
 }

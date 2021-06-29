@@ -175,7 +175,7 @@ class Position {
         return despDer <= 0 ? Math.round((despDer - 6)) : 0
     }
 
-    static positionTop (origin, ele, $) {
+    static positionTop (origin, ele) {
         $(ele).css("top", $(origin).offset().top - $(ele).outerHeight() - 5)
         $(ele).css("left",  Position.alignHorizontal(origin,ele))
         

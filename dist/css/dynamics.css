@@ -61,6 +61,7 @@
 .dropdown-trigger {
   padding-right: 30px !important;
   position: relative !important;
+  z-index: 1 !important;
 }
 
 .dropdown-list-force,
@@ -206,7 +207,7 @@
   max-width: fit-content;
   padding: 7px;
   font-size: 1em;
-  color: white !important;
+  color: white;
   background-color: #000000bb !important;
   position: absolute;
   display: none;
@@ -218,6 +219,10 @@
   z-index: 100000;
   transform: translate(0);
   transition: transform 0.3s ease;
+}
+
+.tips-ele {
+  z-index: 1 !important;
 }
 
 .comment {
@@ -232,6 +237,10 @@
   display: none;
   transform: translate(0);
   transition: transform 0.3s ease;
+}
+
+.com {
+  z-index: 1 !important;
 }
 
 .toast {

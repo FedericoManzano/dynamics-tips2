@@ -1,33 +1,35 @@
 import $ from "jquery"
 import Direction from "./position/Direction"
 
-/**
- * 
- * 
- */
 class Tips {
 
-    // 
+
     static visible = false
     static origen = null 
 
 
-    static init() {
+    static init(cover) {
         
         $(".tips-ele").each((index, ele) => {
             let evento = $( ele ).data("evt")
             if( Tips.valEvent( evento ) ) 
                 Tips.eventMouse( ele )
             else 
-                Tips.eventClick( ele )
+                Tips.eventClick( ele, cover )
+            
         })
-
+        $(".cover-drop").on("click", () => {
+            $(".tips").remove()
+            cover.hide()
+        })
         $(window).on("scroll", (e) => {
+            $(".tips").remove()
             if(Tips.visible && Tips.origen !== null) 
                 Tips.evt( Tips.origen )
         })
 
         $( window ).on( "resize" , (e) => {
+            $(".tips").remove()
             if(Tips.visible && Tips.origen !== null) 
                 Tips.evt(Tips.origen)
         })
@@ -43,16 +45,12 @@ class Tips {
         })
     }
 
-    static eventClick (elemento) {
+    static eventClick (elemento, cover) {
         $(elemento).on("click", (e)  => {
-            if(!Tips.visible) {
-                Tips.origen = e.target
-                Tips.evt(Tips.origen)
-                Tips.visible = true
-            }else {
-                $(".tips").remove()
-                Tips.visible = false
-            }
+            Tips.origen = e.target
+            Tips.evt(Tips.origen)
+            Tips.visible = true
+            cover.show()
         })
     }
 

@@ -20,7 +20,7 @@ class Personal {
     // al elemento dinámico
     static clase = null
 
-    static init() {
+    static init(cover) {
         
         // Recorrer todos los elementos dispradores dentro
         // de la página. En este caso dichos elementos 
@@ -71,26 +71,37 @@ class Personal {
                     if(!Personal.visible) {
                         $("."+Personal.clase).remove()
                         Personal.origen = e.target
-                        if(Personal.evt( Personal.origen ))
+                        if(Personal.evt( Personal.origen )) {
                             Personal.visible = true
+                            cover.show()
+                        }
+                            
                     }else {
                         $( "." + Personal.clase ).remove()
                         Personal.visible = false
                     }
                 })
+
+                $(".cover-drop").on("click", () => {
+                    $("."+Personal.clase).remove()
+                    Personal.visible = false 
+                    cover.hide()
+                })
+
+                $(window).on("scroll", () => {
+                    $( "."+Personal.clase ).remove()
+                    if( Personal.visible ) 
+                        Personal.evt( ele )
+                })
+    
+                $(window).on("resize", () => {
+                    $( "."+Personal.clase ).remove()
+                    if( Personal.visible )  
+                        Personal.evt( ele ) 
+                })
             }
 
-            $(window).on("scroll", () => {
-                $( "."+Personal.clase ).remove()
-                if( Personal.visible ) 
-                    Personal.evt( ele )
-            })
-
-            $(window).on("resize", () => {
-                $( "."+Personal.clase ).remove()
-                if( Personal.visible )  
-                    Personal.evt( ele ) 
-            })
+           
         })
     }
 

@@ -1,10 +1,14 @@
+/**
+* Dynamics Tips 2.0.0
+* Repositorio: https://github.com/FedericoManzano/dynamics-tips2
+* Author: Federico Manzano
+*/
+
 import App from "./app"
 
 (function() {
 
-    /*************************************************************
-     * Funciones para inicializar y destruir el drop
-     */
+
     const initDrop = () => {
         App.drop()
     }
