@@ -25,7 +25,7 @@ Elementos dinámicos para páginas web incluye Dropdown, comentarios dinámicos,
         - [Capturas](https://github.com/FedericoManzano/dynamics-tips2#capturas-1)
         - [AttrData](https://github.com/FedericoManzano/dynamics-tips2#attr-data)
 - [Dropdown](https://github.com/FedericoManzano/dynamics-tips2#dropdown)
-    [Capturas](https://github.com/FedericoManzano/dynamics-tips2#capturas-2)
+    - [Capturas](https://github.com/FedericoManzano/dynamics-tips2#capturas-2)
 
 
 ## Estructura
