@@ -6,6 +6,13 @@ Elementos dinámicos para páginas web incluye Dropdown, comentarios dinámicos,
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/FedericoManzano/dynamics-tips2/blob/master/LICENSE)
 
+## Contenido
+
+- [Estructura] (https://github.com/FedericoManzano/dynamics-tips2#estructura)
+- [CDN](https://github.com/FedericoManzano/dynamics-tips2#cdn)
+    - [CDN Estilos](https://github.com/FedericoManzano/dynamics-tips2#archivo-de-estilos-dynamicsmincss)
+    - [CDN js](https://github.com/FedericoManzano/dynamics-tips2#archivo-de-javascript-dynamicsminjs)
+    - [Template](https://github.com/FedericoManzano/dynamics-tips2#template)
 
 ## Estructura
 
